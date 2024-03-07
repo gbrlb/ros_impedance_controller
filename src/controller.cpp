@@ -9,6 +9,15 @@
 #include <string.h>
 #include <math.h>
 
+// #include <Eigen/Core>
+#include <Eigen/LU>
+#include <Eigen/Geometry>
+#include <Eigen/Dense>
+
+using namespace Eigen;
+using Eigen::MatrixXd;
+using Eigen::VectorXd;
+
 namespace ros_impedance_controller
 {
 
@@ -383,27 +392,31 @@ namespace ros_impedance_controller
         }
         else
         {
+            des_joint_efforts_pids_ = Controller::control_PD();
+            // std::cout << "***** des_joint_efforts_pids_: " << des_joint_efforts_pids_ << std::endl;
+
             for (unsigned int i = 0; i < joint_states_.size(); i++)
             {
 
-                measured_joint_position_(i) = joint_states_[i].getPosition();
-                measured_joint_velocity_(i) = joint_states_[i].getVelocity();
-                double joint_pos_error = des_joint_positions_(i) - measured_joint_position_(i);
-                double integral_action = integral_action_old_[i] + joint_i_gain_[i] * joint_pos_error * period.toSec();
-                // std::cout << "***** joint: "<< joint_names_[i] << std::endl;
-                // std::cout << "joint des:   "<< des_joint_positions_(i) << std::endl;
-                // std::cout << "joint pos:   "<< joint_states_[i].getPosition() << std::endl;
-                // std::cout << "wrap:        "<< measured_joint_position_(i) << std::endl;
+                // measured_joint_position_(i) = joint_states_[i].getPosition();
+                // measured_joint_velocity_(i) = joint_states_[i].getVelocity();
+                // double joint_pos_error = des_joint_positions_(i) - measured_joint_position_(i);
+                // double integral_action = integral_action_old_[i] + joint_i_gain_[i] * joint_pos_error * period.toSec();
 
-                // std::cout << "effort pid des:  "<< des_joint_efforts_pids_(i) << std::endl;
-                // std::cout << "effort meas: "<< joint_states_[i].getEffort() << std::endl;
+                // // std::cout << "***** joint: " << joint_names_[i] << std::endl;
+                // // std::cout << "joint des:   " << des_joint_positions_(i) << std::endl;
+                // // std::cout << "joint pos:   " << joint_states_[i].getPosition() << std::endl;
+                // // std::cout << "wrap:        " << measured_joint_position_(i) << std::endl;
 
-                // compute PID
-                des_joint_efforts_pids_(i) = joint_p_gain_[i] * (des_joint_positions_(i) - measured_joint_position_(i)) +
-                                             joint_d_gain_[i] * (des_joint_velocities_(i) - measured_joint_velocity_(i)) +
-                                             integral_action;
+                // // std::cout << "effort pid des:  " << des_joint_efforts_pids_(i) << std::endl;
+                // // std::cout << "effort meas: " << joint_states_[i].getEffort() << std::endl;
 
-                integral_action_old_[i] = integral_action;
+                // // compute PID
+                // des_joint_efforts_pids_(i) = joint_p_gain_[i] * (des_joint_positions_(i) - measured_joint_position_(i)) +
+                //                              joint_d_gain_[i] * (des_joint_velocities_(i) - measured_joint_velocity_(i)) +
+                //                              integral_action;
+
+                // integral_action_old_[i] = integral_action;
 
                 msg.name[i] = joint_names_[i];
                 msg.effort_pid[i] = des_joint_efforts_pids_(i);
@@ -413,6 +426,288 @@ namespace ros_impedance_controller
         }
 
         effort_pid_pub.publish(msg);
+    }
+
+    Eigen::MatrixXd Controller::fk_leg(Eigen::MatrixXd q)
+    {
+
+        Eigen::VectorXd L(3);
+        L << 0.08, 0.213, 0.213;
+        Eigen::MatrixXd p = Eigen::MatrixXd::Zero(3, 4);
+
+        for (unsigned int i = 0; i < 3; ++i)
+        {
+            if (i == 0 || i == 2)
+            {
+
+                p(0, i) = L(2) * std::sin(q(1, i) + q(2, i)) + L[1] * std::sin(q(1, i));
+                p(1, i) = L(1) * std::cos(q(1, i)) * std::sin(q(0, i)) - L(0) * std::cos(q(0, i)) +
+                          L(2) * std::cos(q(1, i)) * std::cos(q(2, i)) * std::sin(q(0, i)) -
+                          L(2) * std::sin(q(0, i)) * std::sin(q(1, i)) * std::sin(q(2, i));
+                p(2, i) = L(2) * std::cos(q(0, i)) * std::sin(q(1, i)) * std::sin(q(2, i)) -
+                          L(1) * std::cos(q(0, i)) * std::cos(q(1, i)) -
+                          L(2) * std::cos(q(0, i)) * std::cos(q(1, i)) * std::cos(q(2, i)) -
+                          L(0) * std::sin(q(0, i));
+            }
+            else
+            {
+
+                p(0, i) = L(2) * std::sin(q(1, i) + q(2, i)) + L(1) * std::sin(q(1, i));
+                p(1, i) = L(0) * std::cos(q(0, i)) + L(1) * std::cos(q(1, i)) * std::sin(q(0, i)) +
+                          L(2) * std::cos(q(1, i)) * std::cos(q(2, i)) * std::sin(q(0, i)) -
+                          L(2) * std::sin(q(0, i)) * std::sin(q(1, i)) * std::sin(q(2, i));
+                p(2, i) = L(0) * std::sin(q(0, i)) - L(1) * std::cos(q(0, i)) * std::cos(q(1, i)) -
+                          L(2) * std::cos(q(0, i)) * std::cos(q(1, i)) * std::cos(q(2, i)) +
+                          L(2) * std::cos(q(0, i)) * std::sin(q(1, i)) * std::sin(q(2, i));
+            }
+        }
+
+
+        return p;
+    }
+
+    Eigen::MatrixXd Controller::J_leg_R(Eigen::MatrixXd q)
+    {
+        Eigen::VectorXd L(3);
+        L << 0.08, 0.213, 0.213;
+
+        Eigen::MatrixXd J = Eigen::MatrixXd::Zero(3, 3);
+
+        J(0, 0) = 0;
+        J(0, 1) = L(2) * std::cos(q(1) + q(2)) + L(1) * std::cos(q(1));
+        J(0, 2) = L(2) * std::cos(q(1) + q(2));
+
+        J(1, 0) = (L(0) * std::sin(q(0)) + L(1) * std::cos(q(0)) * std::cos(q(1)) +
+                   L(2) * std::cos(q(0)) * std::cos(q(1)) * std::cos(q(2)) -
+                   L(2) * std::cos(q(0)) * std::sin(q(1)) * std::sin(q(2)));
+        J(1, 1) = -std::sin(q(0)) * (L(2) * std::sin(q(1) + q(2)) + L(1) * std::sin(q(1)));
+        J(1, 2) = -L(2) * std::sin(q(1) + q(2)) * std::sin(q(0));
+
+        J(2, 0) = (L(1) * std::cos(q(1)) * std::sin(q(0)) -
+                   L(0) * std::cos(q(0)) + L(2) * std::cos(q(1)) * std::cos(q(2)) * std::sin(q(0)) -
+                   L(2) * std::sin(q(0)) * std::sin(q(1)) * std::sin(q(2)));
+        J(2, 1) = std::cos(q(0)) * (L(2) * std::sin(q(1) + q(2)) + L(1) * std::sin(q(1)));
+        J(2, 2) = L(2) * std::sin(q(1) + q(2)) * std::cos(q(0));
+
+        return J;
+    }
+
+    Eigen::MatrixXd Controller::J_leg_L(Eigen::MatrixXd q)
+    {
+
+        Eigen::VectorXd L(3);
+        L << 0.08, 0.213, 0.213;
+
+        Eigen::MatrixXd J = Eigen::MatrixXd::Zero(3, 3);
+
+        J(0, 0) = 0;
+        J(0, 1) = L(2) * std::cos(q(1) + q(2)) + L(1) * std::cos(q(1));
+        J(0, 2) = L(2) * std::cos(q(1) + q(2));
+
+        J(1, 0) = L(1) * std::cos(q(0)) * std::cos(q(1)) - L(0) * std::sin(q(0)) + L(2) * std::cos(q(0)) * std::cos(q(1)) * std::cos(q(2)) - L(2) * std::cos(q(0)) * std::sin(q(1)) * std::sin(q(2));
+        J(1, 1) = -std::sin(q(0)) * (L(2) * std::sin(q(1) + q(2)) + L(1) * std::sin(q(1)));
+        J(1, 2) = -L(2) * std::sin(q(1) + q(2)) * std::sin(q(0));
+
+        J(2, 0) = L(0) * std::cos(q(0)) + L(1) * std::cos(q(1)) * std::sin(q(0)) + L(2) * std::cos(q(1)) * std::cos(q(2)) * std::sin(q(0)) - L(2) * std::sin(q(0)) * std::sin(q(1)) * std::sin(q(2));
+        J(2, 1) = std::cos(q(0)) * (L(2) * std::sin(q(1) + q(2)) + L(1) * std::sin(q(1)));
+        J(2, 2) = L(2) * std::sin(q(1) + q(2)) * std::cos(q(0));
+
+        return J;
+    }
+
+    Eigen::MatrixXd Controller::diff_fk_leg(Eigen::MatrixXd q, Eigen::MatrixXd dq)
+    {
+
+        Eigen::MatrixXd dp = Eigen::MatrixXd::Zero(3, 4);
+
+        for (unsigned int j = 0; j < 4; ++j)
+        {
+            if (j == 0 || j == 2)
+            {
+                Eigen::VectorXd q_ax(3);
+                q_ax(0) = q(0, j);
+                q_ax(1) = q(1, j);
+                q_ax(2) = q(2, j);
+
+                Eigen::VectorXd dq_ax(3);
+                dq_ax(0) = dq(0, j);
+                dq_ax(1) = dq(1, j);
+                dq_ax(2) = dq(2, j);
+
+                Eigen::VectorXd dp_ax(3);
+                dp_ax = Controller::J_leg_R(q_ax) * dq_ax;
+
+                dp(0, j) = dp_ax(0);
+                dp(1, j) = dp_ax(1);
+                dp(2, j) = dp_ax(2);
+            }
+            else
+            {
+                Eigen::VectorXd q_ax(3);
+                q_ax(0) = q(0, j);
+                q_ax(1) = q(1, j);
+                q_ax(2) = q(2, j);
+
+                Eigen::VectorXd dq_ax(3);
+                dq_ax(0) = dq(0, j);
+                dq_ax(1) = dq(1, j);
+                dq_ax(2) = dq(2, j);
+
+                Eigen::VectorXd dp_ax(3);
+                dp_ax = Controller::J_leg_L(q_ax) * dq_ax;
+
+                dp(0, j) = dp_ax(0);
+                dp(1, j) = dp_ax(1);
+                dp(2, j) = dp_ax(2);
+            }
+        }
+
+        return dp;
+    }
+
+    Eigen::VectorXd Controller::control_PD()
+    {
+        Eigen::MatrixXd q = Eigen::MatrixXd::Zero(3, 4);      // {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
+        Eigen::MatrixXd dq = Eigen::MatrixXd::Zero(3, 4);     // {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
+        Eigen::MatrixXd des_p = Eigen::MatrixXd::Zero(3, 4);  //{{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
+        Eigen::MatrixXd des_dp = Eigen::MatrixXd::Zero(3, 4); //{{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
+        Eigen::MatrixXd ax = Eigen::MatrixXd::Zero(3, 4);     //{{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
+        Eigen::VectorXd ax_12 = Eigen::VectorXd::Zero(12);
+        Eigen::MatrixXd p_gain = Eigen::MatrixXd::Zero(3, 4); //{{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
+        Eigen::MatrixXd d_gain = Eigen::MatrixXd::Zero(3, 4); //{{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
+        const int gdp2L[12] = {6, 7, 8, 0, 1, 2, 9, 10, 11, 3, 4, 5};
+
+        for (unsigned int i = 0; i < 4; i++)
+        {
+            q(0, i) = joint_states_[gdp2L[i * 3]].getPosition();
+            q(1, i) = joint_states_[gdp2L[i * 3 + 1]].getPosition();
+            q(2, i) = joint_states_[gdp2L[i * 3 + 2]].getPosition();
+
+            dq(0, i) = joint_states_[gdp2L[i * 3]].getVelocity();
+            dq(1, i) = joint_states_[gdp2L[i * 3 + 1]].getVelocity();
+            dq(2, i) = joint_states_[gdp2L[i * 3 + 2]].getVelocity();
+
+            des_p(0, i) = des_joint_positions_(gdp2L[i * 3]);
+            des_p(1, i) = des_joint_positions_(gdp2L[i * 3 + 1]);
+            des_p(2, i) = des_joint_positions_(gdp2L[i * 3 + 2]);
+
+            des_dp(0, i) = des_joint_velocities_(gdp2L[i * 3]);
+            des_dp(1, i) = des_joint_velocities_(gdp2L[i * 3 + 1]);
+            des_dp(2, i) = des_joint_velocities_(gdp2L[i * 3 + 2]);
+
+            p_gain(0, i) = joint_p_gain_[gdp2L[i * 3]];
+            p_gain(1, i) = joint_p_gain_[gdp2L[i * 3 + 1]];
+            p_gain(2, i) = joint_p_gain_[gdp2L[i * 3 + 2]];
+
+            d_gain(0, i) = joint_d_gain_[gdp2L[i * 3]];
+            d_gain(1, i) = joint_d_gain_[gdp2L[i * 3 + 1]];
+            d_gain(2, i) = joint_d_gain_[gdp2L[i * 3 + 2]];
+        }
+
+        Eigen::MatrixXd p = Eigen::MatrixXd::Zero(3, 4);
+        p = Controller::fk_leg(q);
+        Eigen::MatrixXd dp = Eigen::MatrixXd::Zero(3, 4);
+        dp = Controller::diff_fk_leg(q, dq);
+
+        for (unsigned int j = 0; j < 4; ++j)
+        {
+            if (j == 0 || j == 2)
+            {
+                Eigen::VectorXd q_ax(3);
+                q_ax << q(0, j), q(1, j), q(2, j);
+
+                Eigen::VectorXd des_p_ax(3);
+                des_p_ax << des_p(0, j), des_p(1, j), des_p(2, j);
+
+                Eigen::VectorXd des_dp_ax(3);
+                des_dp_ax << des_dp(0, j), des_dp(1, j), des_dp(2, j);
+
+                Eigen::VectorXd p_ax(3);
+                p_ax << p(0, j), p(1, j), p(2, j);
+
+                Eigen::VectorXd dp_ax(3);
+                dp_ax << dp(0, j), dp(1, j), dp(2, j);
+
+                Eigen::MatrixXd p_gain_ax(3, 3);
+                p_gain_ax = Eigen::MatrixXd::Zero(3, 3);
+                p_gain_ax(0, 0) = p_gain(0, j);
+                p_gain_ax(1, 1) = p_gain(1, j);
+                p_gain_ax(2, 2) = p_gain(2, j);
+
+                Eigen::MatrixXd d_gain_ax(3, 3);
+                d_gain_ax = Eigen::MatrixXd::Zero(3, 3);
+                d_gain_ax(0, 0) = d_gain(0, j);
+                d_gain_ax(1, 1) = d_gain(1, j);
+                d_gain_ax(2, 2) = d_gain(2, j);
+
+                Eigen::MatrixXd J_leg_inv(3, 3);
+                J_leg_inv = Controller::J_leg_R(q_ax).inverse();
+                
+                Eigen::VectorXd ax_ax(3);
+                ax_ax = J_leg_inv * (p_gain_ax * (des_p_ax - p_ax) + d_gain_ax * (des_dp_ax - dp_ax));
+
+                std::cout << "J_leg_inv: \n" << J_leg_inv << std::endl;
+                std::cout << "P: \n" << p_gain_ax * (des_p_ax - p_ax) << std::endl;
+                std::cout << "D: \n" << d_gain_ax * (des_dp_ax - dp_ax) << std::endl;
+
+                ax(0, j) = ax_ax(0);
+                ax(1, j) = ax_ax(1);
+                ax(2, j) = ax_ax(2);
+            }
+            else
+            {
+                Eigen::VectorXd q_ax(3);
+                q_ax << q(0, j), q(1, j), q(2, j);
+
+                Eigen::VectorXd des_p_ax(3);
+                des_p_ax << des_p(0, j), des_p(1, j), des_p(2, j);
+
+                Eigen::VectorXd des_dp_ax(3);
+                des_dp_ax << des_dp(0, j), des_dp(1, j), des_dp(2, j);
+
+                Eigen::VectorXd p_ax(3);
+                p_ax << p(0, j), p(1, j), p(2, j);
+
+                Eigen::VectorXd dp_ax(3);
+                dp_ax << dp(0, j), dp(1, j), dp(2, j);
+
+                Eigen::MatrixXd p_gain_ax(3, 3);
+                p_gain_ax = Eigen::MatrixXd::Zero(3, 3);
+                p_gain_ax(0, 0) = p_gain(0, j);
+                p_gain_ax(1, 1) = p_gain(1, j);
+                p_gain_ax(2, 2) = p_gain(2, j);
+
+                Eigen::MatrixXd d_gain_ax(3, 3);
+                d_gain_ax = Eigen::MatrixXd::Zero(3, 3);
+                d_gain_ax(0, 0) = d_gain(0, j);
+                d_gain_ax(1, 1) = d_gain(1, j);
+                d_gain_ax(2, 2) = d_gain(2, j);
+
+                Eigen::MatrixXd J_leg_inv(3, 3);
+                J_leg_inv = Controller::J_leg_L(q_ax).inverse();
+
+                Eigen::VectorXd ax_ax(3);
+                ax_ax = J_leg_inv * (p_gain_ax * (des_p_ax - p_ax) + d_gain_ax * (des_dp_ax - dp_ax));
+
+                ax(0, j) = ax_ax(0);
+                ax(1, j) = ax_ax(1);
+                ax(2, j) = ax_ax(2);
+
+            }
+        }
+
+        for (unsigned int i = 0; i < 4; i++)
+        {
+            ax_12(gdp2L[i * 3]) = ax(0, i);
+            ax_12(gdp2L[i * 3 + 1]) = ax(1, i);
+            ax_12(gdp2L[i * 3 + 2]) = ax(2, i);
+        }
+
+
+        std::cout << "ax_12 \n" << ax_12 << std::endl;
+
+
+        return ax_12;
     }
 
     void Controller::stopping(const ros::Time &time)
