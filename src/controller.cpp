@@ -393,8 +393,7 @@ namespace ros_impedance_controller
         else
         {
             des_joint_efforts_pids_ = Controller::control_PD();
-            std::cout << "***** des_joint_efforts_pids_: \n"
-                      << des_joint_efforts_pids_ << std::endl;
+            // std::cout << "***** des_joint_efforts_pids_: \n"<< des_joint_efforts_pids_ << std::endl;
 
             for (unsigned int i = 0; i < joint_states_.size(); i++)
             {
@@ -687,18 +686,23 @@ namespace ros_impedance_controller
                 Eigen::MatrixXd J_leg_inv(3, 3);
                 J_leg_inv = Controller::J_leg_L(q_ax).inverse();
 
-                Eigen::VectorXd ax_ax(3);
-                ax_ax = J_leg_inv * (p_gain_ax * (des_p_ax - p_ax) + d_gain_ax * (des_dp_ax - dp_ax));
 
-                if (j == 3)
+
+
+                Eigen::VectorXd ax_ax(3);
+                ax_ax = J_leg_inv * (p_gain_ax * p_e + d_gain_ax * (des_dp_ax - dp_ax));
+
+                if (j == 1)
                 {
+                    // std::cout << "leg \n"<< j << std::endl;
                     // std::cout << "J_inv L: \n"
                     //   << J_leg_inv << std::endl;
-                    // std::cout << "des_p_ax: \n"<< des_p_ax << std::endl;
-                    // std::cout << "p_ax: \n"<< p_ax << std::endl;
-                    // std::cout << "leg \n"<< j << std::endl;
-                    // std::cout << "erro L: \n"<<(des_p_ax - p_ax) << std::endl;
-                    // std::cout << "ax_ax L: \n"<<ax_ax << std::endl;
+                    std::cout << "===================================================================================="<< std::endl;
+                    std::cout << "position: "<<  des_p_ax.transpose() << " | " <<  p_ax.transpose() << std::endl;
+                    std::cout << "erro p: "<< (des_p_ax - p_ax).transpose() << std::endl;
+                    std::cout << "velocity "<< des_dp_ax.transpose() << " | "<< dp_ax.transpose() << std::endl;
+                    std::cout << "erro v: "<< (des_dp_ax - dp_ax).transpose() << std::endl;
+                    std::cout << "torque: "<< ax_ax.transpose() << std::endl;
                 }
 
                 ax(0, j) = ax_ax(0);
