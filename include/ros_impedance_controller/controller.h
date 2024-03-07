@@ -138,6 +138,13 @@ namespace ros_impedance_controller
           ros::NodeHandle *root_nh_;
           bool verbose = false;
           bool discrete_implementation_ = false;
+
+          Eigen::MatrixXd fk_leg(Eigen::MatrixXd q);
+          Eigen::MatrixXd J_leg_R(Eigen::MatrixXd q);
+          Eigen::MatrixXd J_leg_L(Eigen::MatrixXd q);
+          Eigen::MatrixXd diff_fk_leg(Eigen::MatrixXd q, Eigen::MatrixXd dq);
+
+          Eigen::VectorXd control_PD();
      };
 
      PLUGINLIB_EXPORT_CLASS(ros_impedance_controller::Controller, controller_interface::ControllerBase);
