@@ -57,7 +57,11 @@ include_directories(
 
 link_directories(${GAZEBO_LIBRARY_DIRS})
 
-add_library(${PROJECT_NAME} src/controller.cpp)
+add_library(${PROJECT_NAME} 
+  src/controller.cpp
+  src/controller_TaskSpace.cpp
+  )
+
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
 add_dependencies(${PROJECT_NAME} ${ros_impedance_controller_EXPORTED_TARGETS})
 
