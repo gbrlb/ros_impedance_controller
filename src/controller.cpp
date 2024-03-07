@@ -477,8 +477,11 @@ namespace ros_impedance_controller
         J(0, 2) = L(2) * std::cos(q(1) + q(2));
 
         J(1, 0) = (L(1) * std::cos(q(0)) * std::cos(q(1)) + L(2) * std::cos(q(0)) * std::cos(q(1)) * std::cos(q(2)) - L(2) * std::cos(q(0)) * std::sin(q(1)) * std::sin(q(2))) + L(0) * std::sin(q(0));
+        J(1, 0) = (L(1) * std::cos(q(0)) * std::cos(q(1)) + L(2) * std::cos(q(0)) * std::cos(q(1)) * std::cos(q(2)) - L(2) * std::cos(q(0)) * std::sin(q(1)) * std::sin(q(2))) + L(0) * std::sin(q(0));
         J(1, 1) = -std::sin(q(0)) * (L(2) * std::sin(q(1) + q(2)) + L(1) * std::sin(q(1)));
         J(1, 2) = -L(2) * std::sin(q(1) + q(2)) * std::sin(q(0));
+
+        J(2, 0) = (L(1) * std::cos(q(1)) * std::sin(q(0)) + L(2) * std::cos(q(1)) * std::cos(q(2)) * std::sin(q(0)) - L(2) * std::sin(q(0)) * std::sin(q(1)) * std::sin(q(2))) - L(0) * std::cos(q(0));
 
         J(2, 0) = (L(1) * std::cos(q(1)) * std::sin(q(0)) + L(2) * std::cos(q(1)) * std::cos(q(2)) * std::sin(q(0)) - L(2) * std::sin(q(0)) * std::sin(q(1)) * std::sin(q(2))) - L(0) * std::cos(q(0));
 
@@ -501,9 +504,11 @@ namespace ros_impedance_controller
         J(0, 2) = L(2) * std::cos(q(1) + q(2));
 
         J(1, 0) = (L(1) * std::cos(q(0)) * std::cos(q(1)) + L(2) * std::cos(q(0)) * std::cos(q(1)) * std::cos(q(2)) - L(2) * std::cos(q(0)) * std::sin(q(1)) * std::sin(q(2))) - L(0) * std::sin(q(0));
+        J(1, 0) = (L(1) * std::cos(q(0)) * std::cos(q(1)) + L(2) * std::cos(q(0)) * std::cos(q(1)) * std::cos(q(2)) - L(2) * std::cos(q(0)) * std::sin(q(1)) * std::sin(q(2))) - L(0) * std::sin(q(0));
         J(1, 1) = -std::sin(q(0)) * (L(2) * std::sin(q(1) + q(2)) + L(1) * std::sin(q(1)));
         J(1, 2) = -L(2) * std::sin(q(1) + q(2)) * std::sin(q(0));
 
+        J(2, 0) = (L(1) * std::cos(q(1)) * std::sin(q(0)) + L(2) * std::cos(q(1)) * std::cos(q(2)) * std::sin(q(0)) - L(2) * std::sin(q(0)) * std::sin(q(1)) * std::sin(q(2))) + L(0) * std::cos(q(0));
         J(2, 0) = (L(1) * std::cos(q(1)) * std::sin(q(0)) + L(2) * std::cos(q(1)) * std::cos(q(2)) * std::sin(q(0)) - L(2) * std::sin(q(0)) * std::sin(q(1)) * std::sin(q(2))) + L(0) * std::cos(q(0));
         J(2, 1) = std::cos(q(0)) * (L(2) * std::sin(q(1) + q(2)) + L(1) * std::sin(q(1)));
         J(2, 2) = L(2) * std::sin(q(1) + q(2)) * std::cos(q(0));
@@ -568,7 +573,14 @@ namespace ros_impedance_controller
         Eigen::MatrixXd des_p = Eigen::MatrixXd::Zero(3, 4);
         Eigen::MatrixXd des_dp = Eigen::MatrixXd::Zero(3, 4);
         Eigen::MatrixXd ax = Eigen::MatrixXd::Zero(3, 4);
+        Eigen::MatrixXd q = Eigen::MatrixXd::Zero(3, 4);
+        Eigen::MatrixXd dq = Eigen::MatrixXd::Zero(3, 4);
+        Eigen::MatrixXd des_p = Eigen::MatrixXd::Zero(3, 4);
+        Eigen::MatrixXd des_dp = Eigen::MatrixXd::Zero(3, 4);
+        Eigen::MatrixXd ax = Eigen::MatrixXd::Zero(3, 4);
         Eigen::VectorXd ax_12 = Eigen::VectorXd::Zero(12);
+        Eigen::MatrixXd p_gain = Eigen::MatrixXd::Zero(3, 4);
+        Eigen::MatrixXd d_gain = Eigen::MatrixXd::Zero(3, 4);
         Eigen::MatrixXd p_gain = Eigen::MatrixXd::Zero(3, 4);
         Eigen::MatrixXd d_gain = Eigen::MatrixXd::Zero(3, 4);
         const int gdp2L[12] = {6, 7, 8, 0, 1, 2, 9, 10, 11, 3, 4, 5};
@@ -578,8 +590,12 @@ namespace ros_impedance_controller
             q(0, i) = joint_states_[gdp2L[i * 3]].getPosition();
             q(1, i) = -1 * joint_states_[gdp2L[i * 3 + 1]].getPosition();
             q(2, i) = -1 * joint_states_[gdp2L[i * 3 + 2]].getPosition();
+            q(1, i) = -1 * joint_states_[gdp2L[i * 3 + 1]].getPosition();
+            q(2, i) = -1 * joint_states_[gdp2L[i * 3 + 2]].getPosition();
 
             dq(0, i) = joint_states_[gdp2L[i * 3]].getVelocity();
+            dq(1, i) = -1 * joint_states_[gdp2L[i * 3 + 1]].getVelocity();
+            dq(2, i) = -1 * joint_states_[gdp2L[i * 3 + 2]].getVelocity();
             dq(1, i) = -1 * joint_states_[gdp2L[i * 3 + 1]].getVelocity();
             dq(2, i) = -1 * joint_states_[gdp2L[i * 3 + 2]].getVelocity();
 
@@ -638,6 +654,7 @@ namespace ros_impedance_controller
 
                 Eigen::MatrixXd J_leg_inv(3, 3);
                 J_leg_inv = Controller::J_leg_R(q_ax).inverse();
+
 
                 Eigen::VectorXd ax_ax(3);
                 ax_ax = J_leg_inv * (p_gain_ax * (des_p_ax - p_ax) + d_gain_ax * (des_dp_ax - dp_ax));
