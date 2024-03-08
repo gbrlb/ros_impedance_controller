@@ -644,7 +644,10 @@ namespace ros_impedance_controller
                 J_FL = Controller::J_leg_L(q_ax);
                 J_FL_inv = J_FL.inverse();
                 dp_ax = J_FL * dq_ax;
-
+                std::cout << "+++++++++++++++++++++++++++++++++" << std::endl;
+                std::cout << "joint vel" << i << dq(0, i) << dq(1, i) << dq(2, i) << std::endl;
+                std::cout << "joint vel" << i << dq(0, i) << dq(1, i) << dq(2, i) << std::endl;
+                std::cout << "ee    vel 1:" << dp_ax.transpose() << std::endl;
                 dp(0, i) = dp_ax(0);
                 dp(1, i) = dp_ax(1);
                 dp(2, i) = dp_ax(2);
@@ -662,7 +665,21 @@ namespace ros_impedance_controller
             }
         }
 
+        std::cout << "q :\n" << q << std::endl;
+        std::cout << "dq :\n" << dq << std::endl;
+
         p = Controller::fk_leg(q);
+
+        for (int i = 0; i < 3; ++i)
+        {
+            for (int j = 0; j < 4; ++j)
+            {
+                if (std::abs(dp(i, j)) < 1e-3)
+                {
+                    dp(i, j) = 0;
+                }
+            }
+        }
 
         // dp = Controller::diff_fk_leg(q, dq);
 
@@ -732,7 +749,6 @@ namespace ros_impedance_controller
                 Eigen::VectorXd p_ax(3);
                 p_ax << p(0, j), p(1, j), p(2, j);
 
-                
                 dp_ax << dp(0, j), dp(1, j), dp(2, j);
 
                 Eigen::MatrixXd p_gain_ax(3, 3);
@@ -756,20 +772,40 @@ namespace ros_impedance_controller
                     J_leg_inv = J_RL_inv;
                 }
 
+                Eigen::VectorXd p_e(3);
+                p_e = (des_p_ax - p_ax);
+                for (int i = 0; i < p_e.size(); ++i)
+                {
+                    if (std::abs(p_e(i)) < 1e-3)
+                    {
+                        p_e(i) = 0;
+                    }
+                }
+
+                Eigen::VectorXd pd_e(3);
+                pd_e = (des_dp_ax - dp_ax);
+                for (int i = 0; i < pd_e.size(); ++i)
+                {
+                    if (std::abs(pd_e(i)) < 1e-3)
+                    {
+                        pd_e(i) = 0;
+                    }
+                }
+
                 Eigen::VectorXd ax_ax(3);
-                ax_ax = J_leg_inv * (p_gain_ax * (des_p_ax - p_ax) + d_gain_ax * (des_dp_ax - dp_ax));
+                ax_ax = J_leg_inv * (p_gain_ax * p_e + d_gain_ax * pd_e);
 
                 if (j == 1)
                 {
                     // std::cout << "leg \n"<< j << std::endl;
                     // std::cout << "J_inv L: \n"
                     //   << J_leg_inv << std::endl;
-                    std::cout << "===================================================================================="<< std::endl;
-                    std::cout << "position: "<<  des_p_ax.transpose() << " | " <<  p_ax.transpose() << std::endl;
-                    std::cout << "erro p: "<< (des_p_ax - p_ax).transpose() << std::endl;
-                    std::cout << "velocity "<< des_dp_ax.transpose() << " | "<< dp_ax.transpose() << std::endl;
-                    std::cout << "erro v: "<< (des_dp_ax - dp_ax).transpose() << std::endl;
-                    std::cout << "torque: "<< ax_ax.transpose() << std::endl;
+                    std::cout << "====================================================================================" << std::endl;
+                    std::cout << "position: " << des_p_ax.transpose() << " | " << p_ax.transpose() << std::endl;
+                    std::cout << "erro p: " << p_e.transpose() << std::endl;
+                    std::cout << "velocity " << des_dp_ax.transpose() << " | " << dp_ax.transpose() << std::endl;
+                    std::cout << "erro v: " << pd_e.transpose() << std::endl;
+                    std::cout << "torque: " << ax_ax.transpose() << std::endl;
                 }
 
                 ax(0, j) = ax_ax(0);
