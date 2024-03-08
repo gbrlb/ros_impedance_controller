@@ -817,8 +817,8 @@ namespace ros_impedance_controller
         for (unsigned int i = 0; i < 4; i++)
         {
             ax_12(gdp2L[i * 3]) = ax(0, i);
-            ax_12(gdp2L[i * 3 + 1]) = ax(1, i);
-            ax_12(gdp2L[i * 3 + 2]) = ax(2, i);
+            ax_12(gdp2L[i * 3 + 1]) = - ax(1, i);
+            ax_12(gdp2L[i * 3 + 2]) = - ax(2, i);
         }
 
         return ax_12;
