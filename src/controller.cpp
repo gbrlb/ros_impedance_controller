@@ -644,10 +644,10 @@ namespace ros_impedance_controller
                 J_FL = Controller::J_leg_L(q_ax);
                 J_FL_inv = J_FL.inverse();
                 dp_ax = J_FL * dq_ax;
-                std::cout << "+++++++++++++++++++++++++++++++++" << std::endl;
-                std::cout << "joint vel" << i << dq(0, i) << dq(1, i) << dq(2, i) << std::endl;
-                std::cout << "joint vel" << i << dq(0, i) << dq(1, i) << dq(2, i) << std::endl;
-                std::cout << "ee    vel 1:" << dp_ax.transpose() << std::endl;
+                // std::cout << "+++++++++++++++++++++++++++++++++" << std::endl;
+                // std::cout << "joint vel" << i << dq(0, i) << dq(1, i) << dq(2, i) << std::endl;
+                // std::cout << "joint vel" << i << dq(0, i) << dq(1, i) << dq(2, i) << std::endl;
+                // std::cout << "ee    vel 1:" << dp_ax.transpose() << std::endl;
                 dp(0, i) = dp_ax(0);
                 dp(1, i) = dp_ax(1);
                 dp(2, i) = dp_ax(2);
@@ -665,8 +665,8 @@ namespace ros_impedance_controller
             }
         }
 
-        std::cout << "q :\n" << q << std::endl;
-        std::cout << "dq :\n" << dq << std::endl;
+        // std::cout << "q :\n" << q << std::endl;
+        // std::cout << "dq :\n" << dq << std::endl;
 
         p = Controller::fk_leg(q);
 
@@ -800,12 +800,12 @@ namespace ros_impedance_controller
                     // std::cout << "leg \n"<< j << std::endl;
                     // std::cout << "J_inv L: \n"
                     //   << J_leg_inv << std::endl;
-                    std::cout << "====================================================================================" << std::endl;
-                    std::cout << "position: " << des_p_ax.transpose() << " | " << p_ax.transpose() << std::endl;
-                    std::cout << "erro p: " << p_e.transpose() << std::endl;
-                    std::cout << "velocity " << des_dp_ax.transpose() << " | " << dp_ax.transpose() << std::endl;
-                    std::cout << "erro v: " << pd_e.transpose() << std::endl;
-                    std::cout << "torque: " << ax_ax.transpose() << std::endl;
+                    // std::cout << "====================================================================================" << std::endl;
+                    // std::cout << "position: " << des_p_ax.transpose() << " | " << p_ax.transpose() << std::endl;
+                    // std::cout << "erro p: " << p_e.transpose() << std::endl;
+                    // std::cout << "velocity " << des_dp_ax.transpose() << " | " << dp_ax.transpose() << std::endl;
+                    // std::cout << "erro v: " << pd_e.transpose() << std::endl;
+                    // std::cout << "torque: " << ax_ax.transpose() << std::endl;
                 }
 
                 ax(0, j) = ax_ax(0);
