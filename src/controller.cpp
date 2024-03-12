@@ -14,6 +14,8 @@
 #include <Eigen/Geometry>
 #include <Eigen/Dense>
 
+#include <chrono>
+
 using namespace Eigen;
 using Eigen::MatrixXd;
 using Eigen::VectorXd;
@@ -349,6 +351,7 @@ namespace ros_impedance_controller
 
     void Controller::update(const ros::Time &time, const ros::Duration &period)
     {
+        auto start = std::chrono::high_resolution_clock::now(); 
 
         // if task_period is smaller than sim max_step_size (in world file) period it is clamped to that value!!!!!
         // std::cout<<period.toSec()<<std::endl;
@@ -426,6 +429,13 @@ namespace ros_impedance_controller
         }
 
         effort_pid_pub.publish(msg);
+        
+        auto end = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> elapsed_ms = (end - start) * 1000;
+        if (elapsed_ms.count()>1)
+        {
+            std::cout << elapsed_ms.count() << std::endl;
+        }
     }
 
     Eigen::MatrixXd Controller::fk_leg(Eigen::MatrixXd q)
@@ -817,8 +827,8 @@ namespace ros_impedance_controller
         for (unsigned int i = 0; i < 4; i++)
         {
             ax_12(gdp2L[i * 3]) = ax(0, i);
-            ax_12(gdp2L[i * 3 + 1]) = - ax(1, i);
-            ax_12(gdp2L[i * 3 + 2]) = - ax(2, i);
+            ax_12(gdp2L[i * 3 + 1]) = -ax(1, i);
+            ax_12(gdp2L[i * 3 + 2]) = -ax(2, i);
         }
 
         return ax_12;
