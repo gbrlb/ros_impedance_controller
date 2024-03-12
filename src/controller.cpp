@@ -421,7 +421,14 @@ namespace ros_impedance_controller
                 msg.name[i] = joint_names_[i];
                 msg.effort_pid[i] = des_joint_efforts_pids_(i);
                 // add PID + FFWD
-                joint_states_[i].setCommand(des_joint_efforts_(i) + des_joint_efforts_pids_(i));
+                double tor_m;
+                tor_m = des_joint_efforts_(i) + des_joint_efforts_pids_(i);
+
+                if(std::abs(tor_m)>23.7){
+                    tor_m = 23.7 * tor_m / std::abs(tor_m) ;
+                }
+
+                joint_states_[i].setCommand(tor_m);
             }
         }
 
@@ -668,18 +675,18 @@ namespace ros_impedance_controller
         // std::cout << "q :\n" << q << std::endl;
         // std::cout << "dq :\n" << dq << std::endl;
 
-        p = Controller::fk_leg(q);
+        // p = Controller::fk_leg(q);
 
-        for (int i = 0; i < 3; ++i)
-        {
-            for (int j = 0; j < 4; ++j)
-            {
-                if (std::abs(dp(i, j)) < 1e-3)
-                {
-                    dp(i, j) = 0;
-                }
-            }
-        }
+        // for (int i = 0; i < 3; ++i)
+        // {
+        //     for (int j = 0; j < 4; ++j)
+        //     {
+        //         if (std::abs(dp(i, j)) < 1e-3)
+        //         {
+        //             dp(i, j) = 0;
+        //         }
+        //     }
+        // }
 
         // dp = Controller::diff_fk_leg(q, dq);
 
