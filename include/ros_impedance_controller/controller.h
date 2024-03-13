@@ -143,6 +143,8 @@ namespace ros_impedance_controller
           Eigen::MatrixXd J_leg_R(Eigen::MatrixXd q);
           Eigen::MatrixXd J_leg_L(Eigen::MatrixXd q);
           Eigen::MatrixXd diff_fk_leg(Eigen::MatrixXd q, Eigen::MatrixXd dq);
+          Eigen::MatrixXd Mq_R(Eigen::MatrixXd q);
+          Eigen::MatrixXd Mq_L(Eigen::MatrixXd q);
 
           Eigen::VectorXd control_PD();
      };

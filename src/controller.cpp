@@ -478,6 +478,102 @@ namespace ros_impedance_controller
         return p;
     }
 
+    Eigen::MatrixXd Controller::Mq_R(Eigen::MatrixXd q)
+    {
+        Eigen::VectorXd L(3);
+        L << 0.08, 0.213, 0.213;
+
+        Eigen::VectorXd Lm(3);
+        Lm << L(0)/2, L(1)/2, L(2)/2;
+
+        Eigen::VectorXd m(3);
+        m << 0.591, 1.009, 0.28;
+
+        Eigen::VectorXd Im1(3);
+        Im1 << 0.000374268192, 0.000635923669, 0.000457647394;
+
+        Eigen::VectorXd Im2(3);
+        Im2 << 0.00602684, 0.00579594, 0.00116087;
+
+        Eigen::VectorXd Im3(3);
+        Im3 << 0.00479444, 0.0047988, 0.00016945;
+
+        Eigen::MatrixXd D = Eigen::MatrixXd::Zero(3, 3);
+
+        double cos_q1q2, cos_q1;
+        cos_q1q2 = std::cos(q(1) + q(2));
+        cos_q1 = std::cos(q(1));
+
+        D(1, 1) = (Im2(0) + Im1(1) + Im3(0) + L(0) * L(0) * m(1) 
+        + L(0) * L(0) * m(2) + Lm(0) * Lm(0) * m(0) 
+        - Im3(0) * cos_q1q2*cos_q1q2 
+        + Im3(1) * cos_q1q2*cos_q1q2 
+        - Im2(0) * cos_q1*cos_q1 + Im2(1) * cos_q1*cos_q1 
+        + Lm(2) * Lm(2) * m(2) * cos_q1q2*cos_q1q2 
+        + L(1) *L(1) * m(2) * cos_q1*cos_q1 
+        + Lm(1) *Lm(1) * m(1) * cos_q1*cos_q1 
+        + L(1) * Lm(2) * m(2) * std::cos(q(2)) 
+        + L(1) * Lm(2) * m(2) * std::cos(2 * q(1) + q(2)));
+        D(1, 2) = -L(0) * m(2) * (Lm(2) * std::sin(q(1) + q(2)) + L(1) * std::sin(q(1))) - L(0) * Lm(1) * m(1) * std::sin(q(1));
+        D(1, 3) = -L(0) * Lm(2) * m(2) * std::sin(q(1) + q(2));
+        D(2, 1) = D(1, 2);
+        D(2, 2) = m(2) * L(1) *L(1)  + 2 * m(2) * std::cos(q(2)) * L(1) * Lm(2) + m(1) * Lm(1) *Lm(1)  + m(2) * Lm(2) * Lm(2) + Im2(2) + Im3(2);
+        D(2,3) = m(2) * Lm(2) *Lm(2) + L(1) * m(2) * std::cos(q(2)) * Lm(2) + Im3(2);
+        D(3, 1) = D(1, 3);
+        D(3, 2) = D(2, 3);
+        D(3, 3) = (m(2) * Lm(2) *Lm(2) + Im3(2));
+
+            return D;
+    }
+
+    Eigen::MatrixXd Controller::Mq_L(Eigen::MatrixXd q)
+    {
+        Eigen::VectorXd L(3);
+        L << 0.08, 0.213, 0.213;
+
+        Eigen::VectorXd Lm(3);
+        Lm << L(0) / 2, L(1) / 2, L(2) / 2;
+
+        Eigen::VectorXd m(3);
+        m << 0.591, 1.009, 0.28;
+
+        Eigen::VectorXd Im1(3);
+        Im1 << 0.000374268192, 0.000635923669, 0.000457647394;
+
+        Eigen::VectorXd Im2(3);
+        Im2 << 0.00602684, 0.00579594, 0.00116087;
+
+        Eigen::VectorXd Im3(3);
+        Im3 << 0.00479444, 0.0047988, 0.00016945;
+
+        Eigen::MatrixXd D = Eigen::MatrixXd::Zero(3, 3);
+
+        double cos_q1q2, cos_q1;
+        cos_q1q2 = std::cos(q(1) + q(2));
+        cos_q1 = std::cos(q(1));
+
+        D(1,1) = (Im1(0) + Im2(0) + Im3(0) + L(0) * L(0) * m(1) 
+        + L(0) * L(0) * m(2) + Lm(0) * Lm(0) * m(0) 
+        - Im3(0) * cos_q1q2*cos_q1q2 
+        + Im3(1) * cos_q1q2*cos_q1q2 
+        - Im1(0) * cos_q1*cos_q1 - Im2(0) * cos_q1*cos_q1 
+        + Im1(1) * cos_q1*cos_q1 
+        + Im2(1) * cos_q1*cos_q1 + Lm(2) *Lm(2) * m(2) * cos_q1q2*cos_q1q2 
+        + L(1) *L(1) * m(2) * cos_q1*cos_q1 + Lm(1) *Lm(1) * m(1) * cos_q1*cos_q1 
+        + L(1) * Lm(2) * m(2) * std::cos(q(2))       
+        + L(1) * Lm(2) * m(2) * std::cos(2 * q(1) + q(2)));       
+        D(1,2) = L(0) * m(2) * (Lm(2) * std::sin(q(1) + q(2)) + L(1) * std::sin(q(1))) + L(0) * Lm(1) * m(1) * std::sin(q(1));
+        D(1,3) = L(0) * Lm(2) * m(2) * std::sin(q(1) + q(2));
+        D(2,1) = D(1,2);
+        D(2,2) = m(2) * L(1) * L(1) + 2 * m(2) * std::cos(q(2)) * L(1) * Lm(2) + m(1) * Lm(1) *Lm(1) + m(2) * Lm(2) *Lm(2) + Im2(2) + Im3(2);
+        D(2,3) = m(2) * Lm(2) *Lm(2)  + L(1) * m(2) * std::cos(q(2)) * Lm(2) + Im3(2);
+        D(3,1) = D(1,3);
+        D(3,2) = D(2,3);
+        D(3,3) = (m(2) * Lm(2) * Lm(2) + Im3(2));
+
+        return D;
+    }
+
     Eigen::MatrixXd Controller::J_leg_R(Eigen::MatrixXd q)
     {
         Eigen::VectorXd L(3);
@@ -594,6 +690,10 @@ namespace ros_impedance_controller
         Eigen::MatrixXd J_FL_inv = Eigen::MatrixXd::Zero(3, 3);
         Eigen::MatrixXd J_RL_inv = Eigen::MatrixXd::Zero(3, 3);
         Eigen::MatrixXd J_RR_inv = Eigen::MatrixXd::Zero(3, 3);
+        Eigen::MatrixXd Mq_FR = Eigen::MatrixXd::Zero(3, 3);
+        Eigen::MatrixXd Mq_FL = Eigen::MatrixXd::Zero(3, 3);
+        Eigen::MatrixXd Mq_RR = Eigen::MatrixXd::Zero(3, 3);
+        Eigen::MatrixXd Mq_RL = Eigen::MatrixXd::Zero(3, 3);
         Eigen::VectorXd q_ax(3);
         Eigen::VectorXd dq_ax(3);
         Eigen::VectorXd dp_ax(3);
@@ -634,6 +734,7 @@ namespace ros_impedance_controller
             {
                 J_FR = Controller::J_leg_R(q_ax);
                 J_FR_inv = J_FR.inverse();
+                Mq_FR = Controller::Mq_R(q_ax);
 
                 dp_ax = J_FR * dq_ax;
 
@@ -645,6 +746,7 @@ namespace ros_impedance_controller
             {
                 J_RR = Controller::J_leg_R(q_ax);
                 J_RR_inv = J_RR.inverse();
+                Mq_RR = Controller::Mq_R(q_ax);
 
                 dp_ax = J_RR * dq_ax;
 
@@ -657,6 +759,8 @@ namespace ros_impedance_controller
                 J_FL = Controller::J_leg_L(q_ax);
                 J_FL_inv = J_FL.inverse();
                 dp_ax = J_FL * dq_ax;
+                Mq_FL = Controller::Mq_L(q_ax);
+
                 // std::cout << "+++++++++++++++++++++++++++++++++" << std::endl;
                 // std::cout << "joint vel" << i << dq(0, i) << dq(1, i) << dq(2, i) << std::endl;
                 // std::cout << "joint vel" << i << dq(0, i) << dq(1, i) << dq(2, i) << std::endl;
@@ -669,6 +773,7 @@ namespace ros_impedance_controller
             {
                 J_RL = Controller::J_leg_L(q_ax);
                 J_RL_inv = J_RL.inverse();
+                Mq_RL = Controller::Mq_L(q_ax);
 
                 dp_ax = J_RL * dq_ax;
 
@@ -727,10 +832,12 @@ namespace ros_impedance_controller
 
                 Eigen::MatrixXd J_leg_inv(3, 3);
                 if (j == 0)
-                    J_leg_inv = J_FR_inv;
+                    // J_leg_inv = J_FR_inv;
+                    J_leg_inv = Mq_FR*J_FR_inv;
                 else
-                {
-                    J_leg_inv = J_RR_inv;
+                {   
+                    // J_leg_inv = J_RR_inv;
+                    J_leg_inv = Mq_RR*J_RR_inv;
                 }
 
                 Eigen::VectorXd p_e(3);
@@ -791,10 +898,12 @@ namespace ros_impedance_controller
                 Eigen::MatrixXd J_leg_inv(3, 3);
 
                 if (j == 1)
-                    J_leg_inv = J_FL_inv;
+                    // J_leg_inv = J_FL_inv;
+                    J_leg_inv = Mq_FL*J_FL_inv;
                 else
                 {
-                    J_leg_inv = J_RL_inv;
+                    // J_leg_inv = J_RL_inv;
+                    J_leg_inv = Mq_RL*J_RL_inv;
                 }
 
                 Eigen::VectorXd p_e(3);
