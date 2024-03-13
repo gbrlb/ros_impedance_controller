@@ -351,7 +351,7 @@ namespace ros_impedance_controller
 
     void Controller::update(const ros::Time &time, const ros::Duration &period)
     {
-        auto start = std::chrono::high_resolution_clock::now(); 
+        auto start = std::chrono::high_resolution_clock::now();
 
         // if task_period is smaller than sim max_step_size (in world file) period it is clamped to that value!!!!!
         // std::cout<<period.toSec()<<std::endl;
@@ -429,12 +429,15 @@ namespace ros_impedance_controller
         }
 
         effort_pid_pub.publish(msg);
-        
+
         auto end = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<double> elapsed_ms = (end - start) * 1000;
-        if (elapsed_ms.count()>1)
+        std::chrono::duration<double> elapsed_ms = end - start;
+        // std::cout << elapsed_ms.count() * 1000 << std::endl;
+        ROS_DEBUG("dt: %f", elapsed_ms.count() * 1000);
+        if (elapsed_ms.count() >= period.toSec())
         {
-            std::cout << elapsed_ms.count() << std::endl;
+            ROS_ERROR("dt!!!! :%f", elapsed_ms.count() * 1000);
+            std::cout << "!!!!!!" << elapsed_ms.count() * 1000 << std::endl;
         }
     }
 
@@ -684,7 +687,7 @@ namespace ros_impedance_controller
         {
             for (int j = 0; j < 4; ++j)
             {
-                if (std::abs(dp(i, j)) < 1e-3)
+                if (std::abs(dp(i, j)) < 1e-2)
                 {
                     dp(i, j) = 0;
                 }
@@ -730,16 +733,28 @@ namespace ros_impedance_controller
                     J_leg_inv = J_RR_inv;
                 }
 
-                Eigen::VectorXd ax_ax(3);
-                ax_ax = J_leg_inv * (p_gain_ax * (des_p_ax - p_ax) + d_gain_ax * (des_dp_ax - dp_ax));
+                Eigen::VectorXd p_e(3);
+                p_e = (des_p_ax - p_ax);
+                for (int i = 0; i < p_e.size(); ++i)
+                {
+                    if (std::abs(p_e(i)) < 1e-3)
+                    {
+                        p_e(i) = 0;
+                    }
+                }
 
-                // std::cout << "J_inv R: \n"
-                //           << J_leg_inv << std::endl;
-                // std::cout << "des_p_ax: \n"<< des_p_ax << std::endl;
-                // std::cout << "p_ax: \n"<< p_ax << std::endl;
-                // std::cout << "leg \n"<< j << std::endl;
-                // std::cout << "erro R: \n"<<(des_p_ax - p_ax) << std::endl;
-                // std::cout << "ax_ax R: \n"<<ax_ax << std::endl;
+                Eigen::VectorXd pd_e(3);
+                pd_e = (des_dp_ax - dp_ax);
+                for (int i = 0; i < pd_e.size(); ++i)
+                {
+                    if (std::abs(pd_e(i)) < 1e-2)
+                    {
+                        pd_e(i) = 0;
+                    }
+                }
+
+                Eigen::VectorXd ax_ax(3);
+                ax_ax = J_leg_inv * (p_gain_ax * p_e + d_gain_ax * pd_e);
 
                 ax(0, j) = ax_ax(0);
                 ax(1, j) = ax_ax(1);
@@ -796,7 +811,7 @@ namespace ros_impedance_controller
                 pd_e = (des_dp_ax - dp_ax);
                 for (int i = 0; i < pd_e.size(); ++i)
                 {
-                    if (std::abs(pd_e(i)) < 1e-3)
+                    if (std::abs(pd_e(i)) < 1e-2)
                     {
                         pd_e(i) = 0;
                     }
@@ -804,19 +819,6 @@ namespace ros_impedance_controller
 
                 Eigen::VectorXd ax_ax(3);
                 ax_ax = J_leg_inv * (p_gain_ax * p_e + d_gain_ax * pd_e);
-
-                if (j == 1)
-                {
-                    // std::cout << "leg \n"<< j << std::endl;
-                    // std::cout << "J_inv L: \n"
-                    //   << J_leg_inv << std::endl;
-                    // std::cout << "====================================================================================" << std::endl;
-                    // std::cout << "position: " << des_p_ax.transpose() << " | " << p_ax.transpose() << std::endl;
-                    // std::cout << "erro p: " << p_e.transpose() << std::endl;
-                    // std::cout << "velocity " << des_dp_ax.transpose() << " | " << dp_ax.transpose() << std::endl;
-                    // std::cout << "erro v: " << pd_e.transpose() << std::endl;
-                    // std::cout << "torque: " << ax_ax.transpose() << std::endl;
-                }
 
                 ax(0, j) = ax_ax(0);
                 ax(1, j) = ax_ax(1);
