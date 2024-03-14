@@ -9,6 +9,8 @@
 #include <string.h>
 #include <math.h>
 
+#include <chrono>
+
 namespace ros_impedance_controller
 {
 
@@ -340,7 +342,7 @@ namespace ros_impedance_controller
 
     void Controller::update(const ros::Time &time, const ros::Duration &period)
     {
-
+        auto start = std::chrono::high_resolution_clock::now();
         // if task_period is smaller than sim max_step_size (in world file) period it is clamped to that value!!!!!
         // std::cout<<period.toSec()<<std::endl;
         //    std::cout<<"des_joint_efforts_: " << des_joint_efforts_.transpose()<<std::endl;
@@ -413,6 +415,16 @@ namespace ros_impedance_controller
         }
 
         effort_pid_pub.publish(msg);
+
+        auto end = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> elapsed_ms = end - start;
+        // std::cout << elapsed_ms.count() * 1000 << std::endl;
+        ROS_DEBUG("dt: %f", elapsed_ms.count() * 1000);
+        if (elapsed_ms.count() >= period.toSec())
+        {
+            ROS_ERROR("dt!!!! :%f", elapsed_ms.count() * 1000);
+            std::cout << "!!!!!!" << elapsed_ms.count() * 1000 << std::endl;
+        }
     }
 
     void Controller::stopping(const ros::Time &time)
