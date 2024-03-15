@@ -121,6 +121,8 @@ namespace ros_impedance_controller
         des_joint_efforts_.fill(0.0);
         des_joint_efforts_pids_.resize(joint_states_.size());
         des_joint_efforts_pids_.fill(0.0);
+        des_joint_efforts_sum_.resize(joint_states_.size());
+        des_joint_efforts_sum_.fill(0.0);
         measured_joint_position_.resize(joint_states_.size());
         measured_joint_position_.fill(0.0);
         measured_joint_velocity_.resize(joint_states_.size());
@@ -424,7 +426,17 @@ namespace ros_impedance_controller
                 msg.name[i] = joint_names_[i];
                 msg.effort_pid[i] = des_joint_efforts_pids_(i);
                 // add PID + FFWD
-                joint_states_[i].setCommand(des_joint_efforts_(i) + des_joint_efforts_pids_(i));
+
+                des_joint_efforts_sum_(i) = des_joint_efforts_(i) + des_joint_efforts_pids_(i);
+
+                if (std::abs(des_joint_efforts_sum_(i))> 27.3){
+                    des_joint_efforts_sum_(i) = (des_joint_efforts_sum_(i)/std::abs(des_joint_efforts_sum_(i)))*27.3;
+                }
+
+                // joint_states_[i].setCommand(des_joint_efforts_(i) + des_joint_efforts_pids_(i));
+                joint_states_[i].setCommand(des_joint_efforts_sum_(i));
+
+                
             }
         }
 
@@ -724,7 +736,7 @@ namespace ros_impedance_controller
             {
                 J_FR = Controller::J_leg_R(q_ax);
                 J_FR_inv = J_FR.inverse();
-                Mq_FR = Controller::Mq_R(q_ax);
+                // Mq_FR = Controller::Mq_R(q_ax);
 
                 dp_ax = J_FR * dq_ax;
 
@@ -736,7 +748,7 @@ namespace ros_impedance_controller
             {
                 J_RR = Controller::J_leg_R(q_ax);
                 J_RR_inv = J_RR.inverse();
-                Mq_RR = Controller::Mq_R(q_ax);
+                // Mq_RR = Controller::Mq_R(q_ax);
 
                 dp_ax = J_RR * dq_ax;
 
@@ -749,7 +761,7 @@ namespace ros_impedance_controller
                 J_FL = Controller::J_leg_L(q_ax);
                 J_FL_inv = J_FL.inverse();
                 dp_ax = J_FL * dq_ax;
-                Mq_FL = Controller::Mq_L(q_ax);
+                // Mq_FL = Controller::Mq_L(q_ax);
 
                 // std::cout << "+++++++++++++++++++++++++++++++++" << std::endl;
                 // std::cout << "joint vel" << i << dq(0, i) << dq(1, i) << dq(2, i) << std::endl;
@@ -763,7 +775,7 @@ namespace ros_impedance_controller
             {
                 J_RL = Controller::J_leg_L(q_ax);
                 J_RL_inv = J_RL.inverse();
-                Mq_RL = Controller::Mq_L(q_ax);
+                // Mq_RL = Controller::Mq_L(q_ax);
 
                 dp_ax = J_RL * dq_ax;
 
@@ -822,12 +834,12 @@ namespace ros_impedance_controller
 
                 Eigen::MatrixXd J_leg_inv(3, 3);
                 if (j == 0)
-                    // J_leg_inv = J_FR_inv;
-                    J_leg_inv = Mq_FR * J_FR_inv;
+                    J_leg_inv = J_FR_inv;
+                    // J_leg_inv = Mq_FR * J_FR_inv;
                 else
                 {
-                    // J_leg_inv = J_RR_inv;
-                    J_leg_inv = Mq_RR * J_RR_inv;
+                    J_leg_inv = J_RR_inv;
+                    // J_leg_inv = Mq_RR * J_RR_inv;
                 }
 
                 Eigen::VectorXd p_e(3);
@@ -888,12 +900,12 @@ namespace ros_impedance_controller
                 Eigen::MatrixXd J_leg_inv(3, 3);
 
                 if (j == 1)
-                    // J_leg_inv = J_FL_inv;
-                    J_leg_inv = Mq_FL * J_FL_inv;
+                    J_leg_inv = J_FL_inv;
+                    // J_leg_inv = Mq_FL * J_FL_inv;
                 else
                 {
-                    // J_leg_inv = J_RL_inv;
-                    J_leg_inv = Mq_RL * J_RL_inv;
+                    J_leg_inv = J_RL_inv;
+                    // J_leg_inv = Mq_RL * J_RL_inv;
                 }
 
                 Eigen::VectorXd p_e(3);
