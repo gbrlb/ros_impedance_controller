@@ -117,6 +117,8 @@ namespace ros_impedance_controller
 
           /** @brief Desired joint efforts computed by the PIDs */
           Eigen::VectorXd des_joint_efforts_pids_;
+          Eigen::VectorXd des_joint_efforts_sum_;
+          
 
           /** @brief Discrete implem varables */
           Eigen::VectorXd error_;
@@ -146,7 +148,10 @@ namespace ros_impedance_controller
           Eigen::MatrixXd Mq_R(Eigen::MatrixXd q);
           Eigen::MatrixXd Mq_L(Eigen::MatrixXd q);
 
-          Eigen::VectorXd control_PD();
+          Eigen::VectorXd control_PD(double period);
+
+          Eigen::VectorXd integral_action_old_leg;
+          // integral_action_old_leg = Eigen::MatrixXd::Zero(3, 4);
      };
 
      PLUGINLIB_EXPORT_CLASS(ros_impedance_controller::Controller, controller_interface::ControllerBase);
