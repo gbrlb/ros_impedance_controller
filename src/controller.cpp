@@ -752,7 +752,7 @@ namespace ros_impedance_controller
             if (i == 0)
             {
                 J_FR = Controller::J_leg_R(q_ax);
-                J_FR_inv = J_FR.inverse();
+                J_FR_inv = J_FR.transpose();
                 // Mq_FR = Controller::Mq_R(q_ax);
 
                 dp_ax = J_FR * dq_ax;
@@ -764,7 +764,7 @@ namespace ros_impedance_controller
             else if (i == 2)
             {
                 J_RR = Controller::J_leg_R(q_ax);
-                J_RR_inv = J_RR.inverse();
+                J_RR_inv = J_RR.transpose();
                 // Mq_RR = Controller::Mq_R(q_ax);
 
                 dp_ax = J_RR * dq_ax;
@@ -776,7 +776,7 @@ namespace ros_impedance_controller
             else if (i == 1)
             {
                 J_FL = Controller::J_leg_L(q_ax);
-                J_FL_inv = J_FL.inverse();
+                J_FL_inv = J_FL.transpose();
                 dp_ax = J_FL * dq_ax;
                 // Mq_FL = Controller::Mq_L(q_ax);
 
@@ -791,7 +791,7 @@ namespace ros_impedance_controller
             else if (i == 3)
             {
                 J_RL = Controller::J_leg_L(q_ax);
-                J_RL_inv = J_RL.inverse();
+                J_RL_inv = J_RL.transpose();
                 // Mq_RL = Controller::Mq_L(q_ax);
 
                 dp_ax = J_RL * dq_ax;
