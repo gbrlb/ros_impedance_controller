@@ -224,6 +224,10 @@ namespace ros_impedance_controller
         sub_contact_rh = root_nh.subscribe("/" + robot_name + "/rh_foot_bumper", 1, &Controller::receive_contact_rh, this, ros::TransportHints().tcpNoDelay());
         contact_state_msg.contacts.resize(4);
         
+        double threshold_high;
+        double threshold_low;
+        controller_nh.param("threshold_high", threshold_high, 10.0);
+        controller_nh.param("threshold_low", threshold_low, 5.0);
 
         std::cout << cyan << "ROS_IMPEDANCE CONTROLLER: ROBOT NAME IS : " << robot_name << reset << std::endl;
         // Create the PID set service
@@ -355,9 +359,6 @@ namespace ros_impedance_controller
             // Calculate the magnitude of the force vector
             double magnitude = forces.norm();
 
-            // Define the thresholds
-            double threshold_high = 15.0;  // Replace with your actual high threshold
-            double threshold_low = 12.0;   // Replace with your actual low threshold
 
             // Compare the magnitude with the thresholds and update the contact_state
             if (magnitude > threshold_high) {

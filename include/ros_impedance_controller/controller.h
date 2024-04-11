@@ -95,6 +95,8 @@ namespace ros_impedance_controller
           ros::Publisher contact_state_pub;
           legged_msgs::ContactsStamped contact_state_msg;
           std::shared_ptr<realtime_tools::RealtimePublisher<legged_msgs::ContactsStamped>> contact_state_pub_rt_;
+          double threshold_high;
+          double threshold_low;
 
           ros::ServiceServer set_pids_srv_;
           ros::ServiceServer get_map_srv_;
