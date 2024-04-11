@@ -93,7 +93,6 @@ namespace ros_impedance_controller
           ros::Subscriber sub_contact_lh;
           ros::Subscriber sub_contact_rh;
           ros::Publisher contact_state_pub;
-          std::vector<bool> contact_state;
           legged_msgs::ContactsStamped contact_state_msg;
 
           ros::ServiceServer set_pids_srv_;

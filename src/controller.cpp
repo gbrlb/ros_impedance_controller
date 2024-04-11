@@ -222,7 +222,6 @@ namespace ros_impedance_controller
         sub_contact_rf = root_nh.subscribe("/" + robot_name + "/rf_foot_bumper", 1, &Controller::receive_contact_rf, this, ros::TransportHints().tcpNoDelay());
         sub_contact_lh = root_nh.subscribe("/" + robot_name + "/lh_foot_bumper", 1, &Controller::receive_contact_lh, this, ros::TransportHints().tcpNoDelay());
         sub_contact_rh = root_nh.subscribe("/" + robot_name + "/rh_foot_bumper", 1, &Controller::receive_contact_rh, this, ros::TransportHints().tcpNoDelay());
-        contact_state = std::vector<bool>(4, false);
         contact_state_msg.contacts.resize(4);
         
 
@@ -361,12 +360,10 @@ namespace ros_impedance_controller
 
             // Compare the magnitude with the thresholds and update the contact_state
             if (magnitude > threshold_high) {
-                contact_state[index] = true;
+                contact_state_msg.contacts.at(index) = true;
             } else if (magnitude < threshold_low) {
-                contact_state[index] = false;
+                contact_state_msg.contacts.at(index) = false;
             }
-            contact_state_msg.contacts.at(index) = contact_state[index];
-
             // std::cout << index << "magnitude: " << magnitude << "\n";
 
         } else {
