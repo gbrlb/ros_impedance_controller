@@ -224,10 +224,10 @@ namespace ros_impedance_controller
         sub_contact_rh = root_nh.subscribe("/" + robot_name + "/rh_foot_bumper", 1, &Controller::receive_contact_rh, this, ros::TransportHints().tcpNoDelay());
         contact_state_msg.contacts.resize(4);
         
-        double threshold_high;
-        double threshold_low;
-        controller_nh.param("threshold_high", threshold_high, 10.0);
-        controller_nh.param("threshold_low", threshold_low, 5.0);
+        controller_nh.getParam("/threshold_high", threshold_high);
+        controller_nh.getParam("/threshold_low", threshold_low);
+        ROS_WARN("threshold_high is: %f", threshold_high);
+        ROS_WARN("threshold_low is: %f", threshold_low);
 
         std::cout << cyan << "ROS_IMPEDANCE CONTROLLER: ROBOT NAME IS : " << robot_name << reset << std::endl;
         // Create the PID set service
@@ -239,7 +239,7 @@ namespace ros_impedance_controller
         // rt publisher (uncomment if you need them)
         // pose_pub_rt_.reset(new realtime_tools::RealtimePublisher<BaseState>(param_node, "/"+robot_name + "/base_state", 1));
         // contact_state_pub_rt_.reset(new realtime_tools::RealtimePublisher<gazebo_msgs::ContactsState>(param_node, "/"+robot_name + "/contacts_state", 1));
-        contact_state_pub_rt_.reset(new realtime_tools::RealtimePublisher<legged_msgs::ContactsStamped>(param_node, "/"+robot_name + "/contacts_state_rt", 1));
+        contact_state_pub_rt_.reset(new realtime_tools::RealtimePublisher<legged_msgs::ContactsStamped>(param_node, "/"+robot_name + "/contact_state_rt", 1));
 
         return true;
     }
@@ -366,10 +366,12 @@ namespace ros_impedance_controller
             } else if (magnitude < threshold_low) {
                 contact_state_msg.contacts.at(index) = false;
             }
-            // std::cout << index << "magnitude: " << magnitude << "\n";
+            ROS_DEBUG("threshold_high is: %f", threshold_high);
+            ROS_DEBUG("threshold_low is: %f", threshold_low);
+
 
         } else {
-            ROS_WARN("Received ContactsState message with no states");
+            // ROS_WARN("Received ContactsState message with no states");
         }
     }
 
