@@ -2,17 +2,22 @@
 <launch>
 	<arg name="robot_name" default="go1" />
         <arg name="rviz" default="true" />
+        <arg name="rqt" default="true" />
         <arg name="gui" default="true" />
         <arg name="rviz_conf" default="$(find ros_impedance_controller)/config/operator_floating.rviz"/>
         <arg name="world_name" default="solo.world"/>
         <arg name="real_robot" default="false" />
         <arg name="go0_conf" default="home"/>
-        <arg name="load_force_sensors" default="false"/>
+        <arg name="load_force_sensors" default="true"/>
 
 	<!-- if task_period is smaller than sim max_step_size (in world file) it is clamped to that value!!!!!!-->
 	<arg name="task_period" default="0.001" />
      	<arg name="new_gazebo_version" default="true" />
 
+	<arg name="threshold_high" default="18" />
+	<arg name="threshold_low" default="12" />
+	<param name="threshold_high"  value="$(arg threshold_high)" />
+	<param name="threshold_low"  value="$(arg threshold_low)" />
 	<arg name="spawn_x" default="0.0" />
 	<arg name="spawn_y" default="0.0" />
 	<arg name="spawn_z" default="0.3" />
@@ -64,9 +69,6 @@
             <node name="robot_hardware_interface" pkg="$(arg robot_name)_hardware_interface" type="ros_control_node" respawn="false" />
         </group>
   	
-
-	
-
         <!-- 4 Loading the controllers into the controller manager -->
         <node name="ros_impedance_controller" pkg="controller_manager" type="spawner" respawn="false"
 		        output="screen" ns="/$(arg robot_name)" args="joint_state_publisher ros_impedance_controller"/>
@@ -78,5 +80,7 @@
 	</node>
         <!-- 6 run rviz -->
         <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rviz_conf) -f world" if="$(arg rviz)"/>
-</launch>
+		<node name="rqt_multiplot" pkg="rqt_multiplot" type="rqt_multiplot" if="$(arg rqt)"/>
+		<!-- <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" if="$(arg rqt)"/> -->
 
+</launch>
