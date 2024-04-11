@@ -8,7 +8,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -std=c++11")
 find_package( Eigen3 REQUIRED )
 
 find_package(catkin REQUIRED tf controller_interface
-            realtime_tools sensor_msgs message_generation gazebo_msgs  geometry_msgs     REQUIRED)
+            realtime_tools sensor_msgs message_generation gazebo_msgs  geometry_msgs legged_msgs)
 
 
 add_message_files(
@@ -37,7 +37,7 @@ generate_messages(DEPENDENCIES geometry_msgs)
 catkin_package(
   INCLUDE_DIRS include ${GAZEBO_INCLUDE_DIRS}
   LIBRARIES ${PROJECT_NAME} ${GAZEBO_LIBRARIES}
-  CATKIN_DEPENDS message_runtime sensor_msgs geometry_msgs
+  CATKIN_DEPENDS message_runtime sensor_msgs geometry_msgs legged_msgs
 
 
 )

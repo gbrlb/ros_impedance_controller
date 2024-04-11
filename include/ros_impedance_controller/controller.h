@@ -4,6 +4,8 @@
 // Ros
 #include <ros/ros.h>
 #include <sensor_msgs/JointState.h>
+#include <gazebo_msgs/ContactsState.h>
+#include <legged_msgs/ContactsStamped.h>
 #include <ros_impedance_controller/EffortPid.h>
 #include <ros_impedance_controller/get_effort_pid.h>
 #include <ros_impedance_controller/pid.h>
@@ -74,9 +76,26 @@ namespace ros_impedance_controller
           // no longer used
           void baseGroundTruthCB(const nav_msgs::OdometryConstPtr &msg);
 
+          void receive_contact_lf(const gazebo_msgs::ContactsState::ConstPtr& msg);
+          void receive_contact_rf(const gazebo_msgs::ContactsState::ConstPtr& msg);
+          void receive_contact_lh(const gazebo_msgs::ContactsState::ConstPtr& msg);
+          void receive_contact_rh(const gazebo_msgs::ContactsState::ConstPtr& msg);
+          void process_contact(const gazebo_msgs::ContactsState::ConstPtr& msg, int index);
+          
+
+
           ros::Subscriber command_sub_;
           // no longer used
           ros::Subscriber gt_sub_;
+
+          ros::Subscriber sub_contact_lf;
+          ros::Subscriber sub_contact_rf;
+          ros::Subscriber sub_contact_lh;
+          ros::Subscriber sub_contact_rh;
+          ros::Publisher contact_state_pub;
+          std::vector<bool> contact_state;
+          legged_msgs::ContactsStamped contact_state_msg;
+
           ros::ServiceServer set_pids_srv_;
           ros::ServiceServer get_map_srv_;
 

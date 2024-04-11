@@ -218,11 +218,25 @@ namespace ros_impedance_controller
         // Create the subscriber
         command_sub_ = root_nh.subscribe("/command", 1, &Controller::commandCallback, this, ros::TransportHints().tcpNoDelay());
 
+        sub_contact_lf = root_nh.subscribe("/" + robot_name + "/lf_foot_bumper", 1, &Controller::receive_contact_lf, this, ros::TransportHints().tcpNoDelay());
+        sub_contact_rf = root_nh.subscribe("/" + robot_name + "/rf_foot_bumper", 1, &Controller::receive_contact_rf, this, ros::TransportHints().tcpNoDelay());
+        sub_contact_lh = root_nh.subscribe("/" + robot_name + "/lh_foot_bumper", 1, &Controller::receive_contact_lh, this, ros::TransportHints().tcpNoDelay());
+        sub_contact_rh = root_nh.subscribe("/" + robot_name + "/rh_foot_bumper", 1, &Controller::receive_contact_rh, this, ros::TransportHints().tcpNoDelay());
+        contact_state = std::vector<bool>(4, false);
+        contact_state_msg.contacts.resize(4);
+        
+
         std::cout << cyan << "ROS_IMPEDANCE CONTROLLER: ROBOT NAME IS : " << robot_name << reset << std::endl;
         // Create the PID set service
         set_pids_srv_ = param_node.advertiseService("/set_pids", &Controller::setPidsCallback, this);
 
         effort_pid_pub = root_nh.advertise<EffortPid>("effort_pid", 1);
+        contact_state_pub = root_nh.advertise<legged_msgs::ContactsStamped>("contact_state", 1);
+
+        // rt publisher (uncomment if you need them)
+        // pose_pub_rt_.reset(new realtime_tools::RealtimePublisher<BaseState>(param_node, "/"+robot_name + "/base_state", 1));
+        // contact_state_pub_rt_.reset(new realtime_tools::RealtimePublisher<gazebo_msgs::ContactsState>(param_node, "/"+robot_name + "/contacts_state", 1));
+
         return true;
     }
 
@@ -318,6 +332,66 @@ namespace ros_impedance_controller
         else
             ROS_WARN("Wrong dimension!");
     }
+
+    void Controller::process_contact(const gazebo_msgs::ContactsState::ConstPtr& msg, int index)
+    {
+        // Check if there is at least one state
+        if (!msg->states.empty()) {
+            // Access the first state
+            const auto& state = msg->states[0];
+
+            // Access the total_wrench field of the first state
+            const auto& total_wrench = state.total_wrench;
+
+            // Access the force field of the total_wrench
+            const auto& force = total_wrench.force;
+
+            // Store the forces in an Eigen::Vector3d
+            Eigen::Vector3d forces(force.x, force.y, force.z);
+
+            // Print the forces in one line
+            // std::cout << "Forces: " << forces.transpose() << "\n";
+
+            // Calculate the magnitude of the force vector
+            double magnitude = forces.norm();
+
+            // Define the thresholds
+            double threshold_high = 15.0;  // Replace with your actual high threshold
+            double threshold_low = 12.0;   // Replace with your actual low threshold
+
+            // Compare the magnitude with the thresholds and update the contact_state
+            if (magnitude > threshold_high) {
+                contact_state[index] = true;
+            } else if (magnitude < threshold_low) {
+                contact_state[index] = false;
+            }
+            contact_state_msg.contacts.at(index) = contact_state[index];
+
+            // std::cout << index << "magnitude: " << magnitude << "\n";
+
+        } else {
+            ROS_WARN("Received ContactsState message with no states");
+        }
+    }
+
+    void Controller::receive_contact_lf(const gazebo_msgs::ContactsState::ConstPtr& msg)
+    {
+        process_contact(msg, 0);
+    }
+
+    void Controller::receive_contact_rf(const gazebo_msgs::ContactsState::ConstPtr& msg)
+    {
+        process_contact(msg, 1);
+    }
+    void Controller::receive_contact_lh(const gazebo_msgs::ContactsState::ConstPtr& msg)
+    {
+        process_contact(msg, 2);
+    }
+    void Controller::receive_contact_rh(const gazebo_msgs::ContactsState::ConstPtr& msg)
+    {
+        process_contact(msg, 3);
+    }
+
 
     void Controller::baseGroundTruthCB(const nav_msgs::OdometryConstPtr &msg)
     {
@@ -446,6 +520,8 @@ namespace ros_impedance_controller
         }
 
         effort_pid_pub.publish(msg);
+        contact_state_msg.header.stamp = ros::Time::now();
+        contact_state_pub.publish(contact_state_msg);
 
         auto end = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> elapsed_ms = end - start;
