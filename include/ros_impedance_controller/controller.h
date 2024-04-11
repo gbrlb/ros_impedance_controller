@@ -94,6 +94,7 @@ namespace ros_impedance_controller
           ros::Subscriber sub_contact_rh;
           ros::Publisher contact_state_pub;
           legged_msgs::ContactsStamped contact_state_msg;
+          std::shared_ptr<realtime_tools::RealtimePublisher<legged_msgs::ContactsStamped>> contact_state_pub_rt_;
 
           ros::ServiceServer set_pids_srv_;
           ros::ServiceServer get_map_srv_;

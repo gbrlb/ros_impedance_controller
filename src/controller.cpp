@@ -235,6 +235,7 @@ namespace ros_impedance_controller
         // rt publisher (uncomment if you need them)
         // pose_pub_rt_.reset(new realtime_tools::RealtimePublisher<BaseState>(param_node, "/"+robot_name + "/base_state", 1));
         // contact_state_pub_rt_.reset(new realtime_tools::RealtimePublisher<gazebo_msgs::ContactsState>(param_node, "/"+robot_name + "/contacts_state", 1));
+        contact_state_pub_rt_.reset(new realtime_tools::RealtimePublisher<legged_msgs::ContactsStamped>(param_node, "/"+robot_name + "/contacts_state_rt", 1));
 
         return true;
     }
@@ -519,6 +520,11 @@ namespace ros_impedance_controller
         effort_pid_pub.publish(msg);
         contact_state_msg.header.stamp = ros::Time::now();
         contact_state_pub.publish(contact_state_msg);
+
+        if (contact_state_pub_rt_->trylock()){
+            contact_state_pub_rt_->msg_ = contact_state_msg;
+            contact_state_pub_rt_->unlockAndPublish();
+        }
 
         auto end = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> elapsed_ms = end - start;
