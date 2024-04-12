@@ -92,6 +92,8 @@ namespace ros_impedance_controller
           ros::Subscriber sub_contact_rf;
           ros::Subscriber sub_contact_lh;
           ros::Subscriber sub_contact_rh;
+          ros::Publisher joint_state_ts_pub;
+          sensor_msgs::JointState joint_state_ts_msg;
           ros::Publisher contact_state_pub;
           legged_msgs::ContactsStamped contact_state_msg;
           std::shared_ptr<realtime_tools::RealtimePublisher<legged_msgs::ContactsStamped>> contact_state_pub_rt_;

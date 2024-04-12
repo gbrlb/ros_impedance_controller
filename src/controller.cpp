@@ -236,6 +236,13 @@ namespace ros_impedance_controller
         set_pids_srv_ = param_node.advertiseService("/set_pids", &Controller::setPidsCallback, this);
 
         effort_pid_pub = root_nh.advertise<EffortPid>("effort_pid", 1);
+
+        joint_state_ts_pub = root_nh.advertise<sensor_msgs::JointState>("joint_state_ts", 1);
+        joint_state_ts_msg.name = joint_names_;
+        joint_state_ts_msg.position.resize(joint_names_.size());
+        joint_state_ts_msg.velocity.resize(joint_names_.size());
+        joint_state_ts_msg.effort.resize(joint_names_.size());
+
         contact_state_pub = root_nh.advertise<legged_msgs::ContactsStamped>("contact_state", 1);
 
         // rt publisher (uncomment if you need them)
@@ -524,6 +531,10 @@ namespace ros_impedance_controller
         }
 
         effort_pid_pub.publish(msg);
+
+        joint_state_ts_msg.header.stamp = ros::Time::now();
+        joint_state_ts_pub.publish(joint_state_ts_msg);
+
         contact_state_msg.header.stamp = ros::Time::now();
         contact_state_pub.publish(contact_state_msg);
 
