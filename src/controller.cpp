@@ -524,7 +524,7 @@ namespace ros_impedance_controller
                 {
                     des_joint_efforts_sum_(i) = (des_joint_efforts_sum_(i) / std::abs(des_joint_efforts_sum_(i))) * effort_limit;
                 }
-
+                joint_state_ts_msg.effort[i] = des_joint_efforts_sum_[i];
                 // joint_states_[i].setCommand(des_joint_efforts_(i) + des_joint_efforts_pids_(i));
                 joint_states_[i].setCommand(des_joint_efforts_sum_(i));
             }
@@ -574,6 +574,9 @@ namespace ros_impedance_controller
                           L(1) * std::cos(q(0, i)) * std::cos(q(1, i)) -
                           L(2) * std::cos(q(0, i)) * std::cos(q(1, i)) * std::cos(q(2, i)) -
                           L(0) * std::sin(q(0, i));
+                joint_state_ts_msg.position[gdp2L[i * 3]] = p(0, i);
+                joint_state_ts_msg.position[gdp2L[i * 3 + 1]] = p(1, i);
+                joint_state_ts_msg.position[gdp2L[i * 3 + 2]] = p(2, i);
             }
             else
             {
@@ -585,6 +588,9 @@ namespace ros_impedance_controller
                 p(2, i) = L(0) * std::sin(q(0, i)) - L(1) * std::cos(q(0, i)) * std::cos(q(1, i)) -
                           L(2) * std::cos(q(0, i)) * std::cos(q(1, i)) * std::cos(q(2, i)) +
                           L(2) * std::cos(q(0, i)) * std::sin(q(1, i)) * std::sin(q(2, i));
+                joint_state_ts_msg.position[gdp2L[i * 3]] = p(0, i);
+                joint_state_ts_msg.position[gdp2L[i * 3 + 1]] = p(1, i);
+                joint_state_ts_msg.position[gdp2L[i * 3 + 2]] = p(2, i);
             }
         }
 
@@ -790,10 +796,10 @@ namespace ros_impedance_controller
         Eigen::MatrixXd J_FL = Eigen::MatrixXd::Zero(3, 3);
         Eigen::MatrixXd J_RR = Eigen::MatrixXd::Zero(3, 3);
         Eigen::MatrixXd J_RL = Eigen::MatrixXd::Zero(3, 3);
-        Eigen::MatrixXd J_FR_inv = Eigen::MatrixXd::Zero(3, 3);
-        Eigen::MatrixXd J_FL_inv = Eigen::MatrixXd::Zero(3, 3);
-        Eigen::MatrixXd J_RL_inv = Eigen::MatrixXd::Zero(3, 3);
-        Eigen::MatrixXd J_RR_inv = Eigen::MatrixXd::Zero(3, 3);
+        // Eigen::MatrixXd J_FR_inv = Eigen::MatrixXd::Zero(3, 3);
+        // Eigen::MatrixXd J_FL_inv = Eigen::MatrixXd::Zero(3, 3);
+        // Eigen::MatrixXd J_RL_inv = Eigen::MatrixXd::Zero(3, 3);
+        // Eigen::MatrixXd J_RR_inv = Eigen::MatrixXd::Zero(3, 3);
         Eigen::MatrixXd Mq_FR = Eigen::MatrixXd::Zero(3, 3);
         Eigen::MatrixXd Mq_FL = Eigen::MatrixXd::Zero(3, 3);
         Eigen::MatrixXd Mq_RR = Eigen::MatrixXd::Zero(3, 3);
@@ -805,8 +811,6 @@ namespace ros_impedance_controller
         Eigen::MatrixXd integral_old = Eigen::MatrixXd::Zero(3, 4);
         Eigen::VectorXd integral_ax_old(3);
         Eigen::VectorXd integral_ax(3);
-
-        const int gdp2L[12] = {6, 7, 8, 0, 1, 2, 9, 10, 11, 3, 4, 5};
 
         for (unsigned int i = 0; i < 4; i++)
         {
@@ -848,7 +852,7 @@ namespace ros_impedance_controller
             if (i == 0)
             {
                 J_FR = Controller::J_leg_R(q_ax);
-                J_FR_inv = J_FR.transpose();
+                // J_FR_inv = J_FR.transpose();
                 // Mq_FR = Controller::Mq_R(q_ax);
 
                 dp_ax = J_FR * dq_ax;
@@ -856,11 +860,14 @@ namespace ros_impedance_controller
                 dp(0, i) = dp_ax(0);
                 dp(1, i) = dp_ax(1);
                 dp(2, i) = dp_ax(2);
+                joint_state_ts_msg.velocity[gdp2L[i * 3]] = dp_ax(0);
+                joint_state_ts_msg.velocity[gdp2L[i * 3 + 1]] = dp_ax(1);
+                joint_state_ts_msg.velocity[gdp2L[i * 3 + 2]] = dp_ax(2);
             }
             else if (i == 2)
             {
                 J_RR = Controller::J_leg_R(q_ax);
-                J_RR_inv = J_RR.transpose();
+                // J_RR_inv = J_RR.transpose();
                 // Mq_RR = Controller::Mq_R(q_ax);
 
                 dp_ax = J_RR * dq_ax;
@@ -868,26 +875,28 @@ namespace ros_impedance_controller
                 dp(0, i) = dp_ax(0);
                 dp(1, i) = dp_ax(1);
                 dp(2, i) = dp_ax(2);
+                joint_state_ts_msg.velocity[gdp2L[i * 3]] = dp_ax(0);
+                joint_state_ts_msg.velocity[gdp2L[i * 3 + 1]] = dp_ax(1);
+                joint_state_ts_msg.velocity[gdp2L[i * 3 + 2]] = dp_ax(2);
             }
             else if (i == 1)
             {
                 J_FL = Controller::J_leg_L(q_ax);
-                J_FL_inv = J_FL.transpose();
+                // J_FL_inv = J_FL.transpose();
                 dp_ax = J_FL * dq_ax;
                 // Mq_FL = Controller::Mq_L(q_ax);
 
-                // std::cout << "+++++++++++++++++++++++++++++++++" << std::endl;
-                // std::cout << "joint vel" << i << dq(0, i) << dq(1, i) << dq(2, i) << std::endl;
-                // std::cout << "joint vel" << i << dq(0, i) << dq(1, i) << dq(2, i) << std::endl;
-                // std::cout << "ee    vel 1:" << dp_ax.transpose() << std::endl;
                 dp(0, i) = dp_ax(0);
                 dp(1, i) = dp_ax(1);
                 dp(2, i) = dp_ax(2);
+                joint_state_ts_msg.velocity[gdp2L[i * 3]] = dp_ax(0);
+                joint_state_ts_msg.velocity[gdp2L[i * 3 + 1]] = dp_ax(1);
+                joint_state_ts_msg.velocity[gdp2L[i * 3 + 2]] = dp_ax(2);
             }
             else if (i == 3)
             {
                 J_RL = Controller::J_leg_L(q_ax);
-                J_RL_inv = J_RL.transpose();
+                // J_RL_inv = J_RL.transpose();
                 // Mq_RL = Controller::Mq_L(q_ax);
 
                 dp_ax = J_RL * dq_ax;
@@ -895,6 +904,9 @@ namespace ros_impedance_controller
                 dp(0, i) = dp_ax(0);
                 dp(1, i) = dp_ax(1);
                 dp(2, i) = dp_ax(2);
+                joint_state_ts_msg.velocity[gdp2L[i * 3]] = dp_ax(0);
+                joint_state_ts_msg.velocity[gdp2L[i * 3 + 1]] = dp_ax(1);
+                joint_state_ts_msg.velocity[gdp2L[i * 3 + 2]] = dp_ax(2);
             }
         }
 
@@ -953,14 +965,14 @@ namespace ros_impedance_controller
                 i_gain_ax(1, 1) = i_gain(1, j);
                 i_gain_ax(2, 2) = i_gain(2, j);
 
-                Eigen::MatrixXd J_leg_inv(3, 3);
+                Eigen::MatrixXd J_leg_T(3, 3);
                 if (j == 0)
-                    J_leg_inv = J_FR_inv;
-                // J_leg_inv = Mq_FR * J_FR_inv;
+                    J_leg_T = J_FR.transpose();
+                // J_leg_T = Mq_FR * J_FR_inv;
                 else
                 {
-                    J_leg_inv = J_RR_inv;
-                    // J_leg_inv = Mq_RR * J_RR_inv;
+                    J_leg_T = J_RR.transpose();
+                    // J_leg_T = Mq_RR * J_RR_inv;
                 }
 
                 Eigen::VectorXd p_e(3);
@@ -987,8 +999,8 @@ namespace ros_impedance_controller
                 integral_ax = integral_ax_old + i_gain_ax * p_e * period;
 
                 Eigen::VectorXd ax_ax(3);
-                ax_ax = J_leg_inv * (p_gain_ax * p_e + d_gain_ax * pd_e + integral_ax);
-                // ax_ax = J_leg_inv * (p_gain_ax * p_e + d_gain_ax * pd_e);
+                ax_ax = J_leg_T * (p_gain_ax * p_e + d_gain_ax * pd_e + integral_ax);
+                // ax_ax = J_leg_T * (p_gain_ax * p_e + d_gain_ax * pd_e);
 
                 ax(0, j) = ax_ax(0);
                 ax(1, j) = ax_ax(1);
@@ -1035,15 +1047,15 @@ namespace ros_impedance_controller
                 i_gain_ax(1, 1) = i_gain(1, j);
                 i_gain_ax(2, 2) = i_gain(2, j);
 
-                Eigen::MatrixXd J_leg_inv(3, 3);
+                Eigen::MatrixXd J_leg_T(3, 3);
 
                 if (j == 1)
-                    J_leg_inv = J_FL_inv;
-                // J_leg_inv = Mq_FL * J_FL_inv;
+                    J_leg_T = J_FL.transpose();
+                // J_leg_T = Mq_FL * J_FL_inv;
                 else
                 {
-                    J_leg_inv = J_RL_inv;
-                    // J_leg_inv = Mq_RL * J_RL_inv;
+                    J_leg_T = J_RL.transpose();
+                    // J_leg_T = Mq_RL * J_RL_inv;
                 }
 
                 Eigen::VectorXd p_e(3);
@@ -1069,8 +1081,8 @@ namespace ros_impedance_controller
                 integral_ax = integral_ax_old + i_gain_ax * p_e * period;
 
                 Eigen::VectorXd ax_ax(3);
-                ax_ax = J_leg_inv * (p_gain_ax * p_e + d_gain_ax * pd_e + integral_ax);
-                // ax_ax = J_leg_inv * (p_gain_ax * p_e + d_gain_ax * pd_e);
+                // ax_ax = J_leg_T * (p_gain_ax * p_e + d_gain_ax * pd_e + integral_ax);
+                ax_ax = J_leg_T * (p_gain_ax * p_e + d_gain_ax * pd_e);
 
                 ax(0, j) = ax_ax(0);
                 ax(1, j) = ax_ax(1);

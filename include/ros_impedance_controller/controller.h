@@ -176,6 +176,7 @@ namespace ros_impedance_controller
 
           Eigen::VectorXd integral_action_old_leg;
           // integral_action_old_leg = Eigen::MatrixXd::Zero(3, 4);
+          const int gdp2L[12] = {6, 7, 8, 0, 1, 2, 9, 10, 11, 3, 4, 5};
      };
 
      PLUGINLIB_EXPORT_CLASS(ros_impedance_controller::Controller, controller_interface::ControllerBase);
