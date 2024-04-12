@@ -33,10 +33,10 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_desired</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
                                     <field>ee_vel/0/x</field>
@@ -48,8 +48,8 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_desired</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
                             <color>
@@ -84,10 +84,10 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_desired</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
                                     <field>ee_vel/0/y</field>
@@ -99,8 +99,8 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_desired</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
                             <color>
@@ -135,10 +135,10 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_desired</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
                                     <field>ee_vel/0/z</field>
@@ -150,8 +150,8 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_desired</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
                             <color>
@@ -186,10 +186,10 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_estimated</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
                                     <field>ee_vel/0/x</field>
@@ -201,8 +201,8 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_estimated</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
                             <color>
@@ -237,10 +237,10 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_estimated</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
                                     <field>ee_vel/0/y</field>
@@ -252,8 +252,8 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_estimated</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
                             <color>
@@ -288,10 +288,10 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_estimated</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
                                     <field>ee_vel/0/z</field>
@@ -303,8 +303,8 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_estimated</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
                             <color>
@@ -362,10 +362,10 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_desired</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
                                     <field>ee_vel/1/x</field>
@@ -377,8 +377,8 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_desired</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
                             <color>
@@ -413,10 +413,10 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_desired</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
                                     <field>ee_vel/1/y</field>
@@ -428,8 +428,8 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_desired</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
                             <color>
@@ -464,10 +464,10 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_desired</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
                                     <field>ee_vel/1/z</field>
@@ -479,8 +479,8 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_desired</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
                             <color>
@@ -515,10 +515,10 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_estimated</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
                                     <field>ee_vel/1/x</field>
@@ -530,8 +530,8 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_estimated</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
                             <color>
@@ -566,10 +566,10 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_estimated</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
                                     <field>ee_vel/1/y</field>
@@ -581,8 +581,8 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_estimated</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
                             <color>
@@ -617,10 +617,10 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_estimated</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
                                     <field>ee_vel/1/z</field>
@@ -632,8 +632,8 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_estimated</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
                             <color>
@@ -693,10 +693,10 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_desired</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
                                     <field>ee_vel/2/x</field>
@@ -708,8 +708,8 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_desired</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
                             <color>
@@ -744,10 +744,10 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_desired</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
                                     <field>ee_vel/2/y</field>
@@ -759,8 +759,8 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_desired</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
                             <color>
@@ -795,10 +795,10 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_desired</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
                                     <field>ee_vel/2/z</field>
@@ -810,8 +810,8 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_desired</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
                             <color>
@@ -846,10 +846,10 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_estimated</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
                                     <field>ee_vel/2/x</field>
@@ -861,8 +861,8 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_estimated</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
                             <color>
@@ -897,10 +897,10 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_estimated</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
                                     <field>ee_vel/2/y</field>
@@ -912,8 +912,8 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_estimated</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
                             <color>
@@ -948,10 +948,10 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_estimated</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
                                     <field>ee_vel/2/z</field>
@@ -963,8 +963,8 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_estimated</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
                             <color>
@@ -1022,10 +1022,10 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_desired</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
                                     <field>ee_vel/3/x</field>
@@ -1037,8 +1037,8 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_desired</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
                             <color>
@@ -1073,10 +1073,10 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_desired</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
                                     <field>ee_vel/3/y</field>
@@ -1088,8 +1088,8 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_desired</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
                             <color>
@@ -1124,10 +1124,10 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_desired</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
                                     <field>ee_vel/3/z</field>
@@ -1139,8 +1139,8 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_desired</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
                             <color>
@@ -1175,10 +1175,10 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_estimated</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
                                     <field>ee_vel/3/x</field>
@@ -1190,8 +1190,8 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_estimated</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
                             <color>
@@ -1226,10 +1226,10 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_estimated</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
                                     <field>ee_vel/3/y</field>
@@ -1241,8 +1241,8 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_estimated</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
                             <color>
@@ -1277,10 +1277,10 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_estimated</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
                                     <field>ee_vel/3/z</field>
@@ -1292,8 +1292,8 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
-                                    <type>go1_msgs/RobotStateStamped</type>
+                                    <topic>/go1/robot_state_estimated</topic>
+                                    <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
                             <color>

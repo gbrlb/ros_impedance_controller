@@ -6,6 +6,7 @@
 #include <sensor_msgs/JointState.h>
 #include <gazebo_msgs/ContactsState.h>
 #include <legged_msgs/ContactsStamped.h>
+#include <legged_msgs/RobotStateStamped.h>
 #include <ros_impedance_controller/EffortPid.h>
 #include <ros_impedance_controller/get_effort_pid.h>
 #include <ros_impedance_controller/pid.h>
@@ -92,11 +93,20 @@ namespace ros_impedance_controller
           ros::Subscriber sub_contact_rf;
           ros::Subscriber sub_contact_lh;
           ros::Subscriber sub_contact_rh;
+
+          ros::Publisher robot_state_desired_pub;
+          legged_msgs::RobotStateStamped robot_state_desired_msg;
+          ros::Publisher robot_state_estimated_pub;
+          legged_msgs::RobotStateStamped robot_state_estimated_msg;
+
           ros::Publisher joint_state_ts_pub;
           sensor_msgs::JointState joint_state_ts_msg;
+
           ros::Publisher contact_state_pub;
           legged_msgs::ContactsStamped contact_state_msg;
+
           std::shared_ptr<realtime_tools::RealtimePublisher<legged_msgs::ContactsStamped>> contact_state_pub_rt_;
+
           double effort_limit;
           double threshold_high;
           double threshold_low;
@@ -177,6 +187,7 @@ namespace ros_impedance_controller
           Eigen::VectorXd integral_action_old_leg;
           // integral_action_old_leg = Eigen::MatrixXd::Zero(3, 4);
           const int gdp2L[12] = {6, 7, 8, 0, 1, 2, 9, 10, 11, 3, 4, 5};
+          const int gdp2L_leg[4] = {2, 0, 3, 1};
      };
 
      PLUGINLIB_EXPORT_CLASS(ros_impedance_controller::Controller, controller_interface::ControllerBase);

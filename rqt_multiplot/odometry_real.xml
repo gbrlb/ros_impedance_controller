@@ -33,7 +33,7 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/kf/odom</topic>
                                     <type>nav_msgs/Odometry</type>
@@ -84,7 +84,7 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/unitree/odom</topic>
                                     <type>nav_msgs/Odometry</type>
@@ -135,7 +135,7 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/t265/odometry</topic>
                                     <type>nav_msgs/Odometry</type>
@@ -209,7 +209,7 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/kf/odom</topic>
                                     <type>nav_msgs/Odometry</type>
@@ -260,7 +260,7 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/unitree/odom</topic>
                                     <type>nav_msgs/Odometry</type>
@@ -311,7 +311,7 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/t265/odometry</topic>
                                     <type>nav_msgs/Odometry</type>
@@ -385,7 +385,7 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/kf/odom</topic>
                                     <type>nav_msgs/Odometry</type>
@@ -436,7 +436,7 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/unitree/odom</topic>
                                     <type>nav_msgs/Odometry</type>
@@ -512,7 +512,7 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/kf/odom</topic>
                                     <type>nav_msgs/Odometry</type>
@@ -563,7 +563,7 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/unitree/odom</topic>
                                     <type>nav_msgs/Odometry</type>
@@ -614,7 +614,7 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/t265/odometry</topic>
                                     <type>nav_msgs/Odometry</type>
@@ -688,7 +688,7 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/kf/odom</topic>
                                     <type>nav_msgs/Odometry</type>
@@ -739,7 +739,7 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/unitree/odom</topic>
                                     <type>nav_msgs/Odometry</type>
@@ -790,7 +790,7 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/t265/odometry</topic>
                                     <type>nav_msgs/Odometry</type>
@@ -864,7 +864,7 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/kf/odom</topic>
                                     <type>nav_msgs/Odometry</type>
@@ -915,7 +915,7 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/unitree/odom</topic>
                                     <type>nav_msgs/Odometry</type>
@@ -991,7 +991,7 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/kf/odom</topic>
                                     <type>nav_msgs/Odometry</type>
@@ -1042,7 +1042,7 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/unitree/odom</topic>
                                     <type>nav_msgs/Odometry</type>
@@ -1093,7 +1093,7 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/t265/odometry</topic>
                                     <type>nav_msgs/Odometry</type>
@@ -1167,7 +1167,7 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/kf/odom</topic>
                                     <type>nav_msgs/Odometry</type>
@@ -1218,7 +1218,7 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/unitree/odom</topic>
                                     <type>nav_msgs/Odometry</type>
@@ -1269,7 +1269,7 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/t265/odometry</topic>
                                     <type>nav_msgs/Odometry</type>
@@ -1343,7 +1343,7 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/kf/odom</topic>
                                     <type>nav_msgs/Odometry</type>
@@ -1394,7 +1394,7 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/unitree/odom</topic>
                                     <type>nav_msgs/Odometry</type>

@@ -33,9 +33,9 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
+                                    <topic>/robot_state_estimated</topic>
                                     <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
@@ -48,7 +48,7 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
+                                    <topic>/robot_state_estimated</topic>
                                     <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
@@ -84,9 +84,9 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
+                                    <topic>/robot_state_desired</topic>
                                     <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
@@ -99,7 +99,7 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
+                                    <topic>/robot_state_desired</topic>
                                     <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
@@ -158,9 +158,9 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
+                                    <topic>/robot_state_estimated</topic>
                                     <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
@@ -173,7 +173,7 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
+                                    <topic>/robot_state_estimated</topic>
                                     <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
@@ -209,9 +209,9 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
+                                    <topic>/robot_state_desired</topic>
                                     <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
@@ -224,7 +224,7 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
+                                    <topic>/robot_state_desired</topic>
                                     <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
@@ -285,9 +285,9 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
+                                    <topic>/robot_state_estimated</topic>
                                     <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
@@ -300,7 +300,7 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
+                                    <topic>/robot_state_estimated</topic>
                                     <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
@@ -336,9 +336,9 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
+                                    <topic>/robot_state_desired</topic>
                                     <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
@@ -351,7 +351,7 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
+                                    <topic>/robot_state_desired</topic>
                                     <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
@@ -410,9 +410,9 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
+                                    <topic>/robot_state_estimated</topic>
                                     <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
@@ -425,7 +425,7 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
+                                    <topic>/robot_state_estimated</topic>
                                     <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
@@ -461,9 +461,9 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
+                                    <topic>/robot_state_desired</topic>
                                     <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
@@ -476,7 +476,7 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
+                                    <topic>/robot_state_desired</topic>
                                     <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
@@ -537,9 +537,9 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
+                                    <topic>/robot_state_estimated</topic>
                                     <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
@@ -552,7 +552,7 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
+                                    <topic>/robot_state_estimated</topic>
                                     <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
@@ -588,9 +588,9 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
+                                    <topic>/robot_state_desired</topic>
                                     <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
@@ -603,7 +603,7 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
+                                    <topic>/robot_state_desired</topic>
                                     <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
@@ -662,9 +662,9 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
+                                    <topic>/robot_state_estimated</topic>
                                     <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
@@ -677,7 +677,7 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/estimated_robot_state</topic>
+                                    <topic>/robot_state_estimated</topic>
                                     <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>
@@ -713,9 +713,9 @@
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
+                                    <topic>/robot_state_desired</topic>
                                     <type>legged_msgs/RobotStateStamped</type>
                                 </x_axis>
                                 <y_axis>
@@ -728,7 +728,7 @@
                                         <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/desired_robot_state</topic>
+                                    <topic>/robot_state_desired</topic>
                                     <type>legged_msgs/RobotStateStamped</type>
                                 </y_axis>
                             </axes>

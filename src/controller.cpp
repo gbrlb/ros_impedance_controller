@@ -237,6 +237,17 @@ namespace ros_impedance_controller
 
         effort_pid_pub = root_nh.advertise<EffortPid>("effort_pid", 1);
 
+        robot_state_desired_pub = root_nh.advertise<legged_msgs::RobotStateStamped>("robot_state_desired", 1);
+        robot_state_estimated_pub = root_nh.advertise<legged_msgs::RobotStateStamped>("robot_state_estimated", 1);
+
+        robot_state_desired_msg.ee_pos.resize(4);
+        robot_state_desired_msg.ee_vel.resize(4);
+        robot_state_desired_msg.ee_contact.resize(4);
+
+        robot_state_estimated_msg.ee_pos.resize(4);
+        robot_state_estimated_msg.ee_vel.resize(4);
+        robot_state_estimated_msg.ee_contact.resize(4);
+
         joint_state_ts_pub = root_nh.advertise<sensor_msgs::JointState>("joint_state_ts", 1);
         joint_state_ts_msg.name = joint_names_;
         joint_state_ts_msg.position.resize(joint_names_.size());
@@ -532,10 +543,16 @@ namespace ros_impedance_controller
 
         effort_pid_pub.publish(msg);
 
-        joint_state_ts_msg.header.stamp = ros::Time::now();
+        robot_state_desired_msg.header.stamp = time;
+        robot_state_desired_pub.publish(robot_state_desired_msg);
+
+        robot_state_estimated_msg.header.stamp = time;
+        robot_state_estimated_pub.publish(robot_state_estimated_msg);
+
+        joint_state_ts_msg.header.stamp = time;
         joint_state_ts_pub.publish(joint_state_ts_msg);
 
-        contact_state_msg.header.stamp = ros::Time::now();
+        contact_state_msg.header.stamp = time;
         contact_state_pub.publish(contact_state_msg);
 
         if (contact_state_pub_rt_->trylock()){
@@ -577,6 +594,10 @@ namespace ros_impedance_controller
                 joint_state_ts_msg.position[gdp2L[i * 3]] = p(0, i);
                 joint_state_ts_msg.position[gdp2L[i * 3 + 1]] = p(1, i);
                 joint_state_ts_msg.position[gdp2L[i * 3 + 2]] = p(2, i);
+
+                robot_state_estimated_msg.ee_pos.at(gdp2L_leg[i]).x = p(0, i);
+                robot_state_estimated_msg.ee_pos.at(gdp2L_leg[i]).y = p(1, i);
+                robot_state_estimated_msg.ee_pos.at(gdp2L_leg[i]).z = p(2, i);
             }
             else
             {
@@ -591,6 +612,11 @@ namespace ros_impedance_controller
                 joint_state_ts_msg.position[gdp2L[i * 3]] = p(0, i);
                 joint_state_ts_msg.position[gdp2L[i * 3 + 1]] = p(1, i);
                 joint_state_ts_msg.position[gdp2L[i * 3 + 2]] = p(2, i);
+
+                robot_state_estimated_msg.ee_pos.at(gdp2L_leg[i]).x = p(0, i);
+                robot_state_estimated_msg.ee_pos.at(gdp2L_leg[i]).y = p(1, i);
+                robot_state_estimated_msg.ee_pos.at(gdp2L_leg[i]).z = p(2, i);
+ 
             }
         }
 
@@ -825,10 +851,16 @@ namespace ros_impedance_controller
             des_p(0, i) = des_joint_positions_(gdp2L[i * 3]);
             des_p(1, i) = des_joint_positions_(gdp2L[i * 3 + 1]);
             des_p(2, i) = des_joint_positions_(gdp2L[i * 3 + 2]);
-
+            robot_state_desired_msg.ee_pos.at(gdp2L_leg[i]).x = des_p(0, i);
+            robot_state_desired_msg.ee_pos.at(gdp2L_leg[i]).y = des_p(1, i);
+            robot_state_desired_msg.ee_pos.at(gdp2L_leg[i]).z = des_p(2, i);
+  
             des_dp(0, i) = des_joint_velocities_(gdp2L[i * 3]);
             des_dp(1, i) = des_joint_velocities_(gdp2L[i * 3 + 1]);
             des_dp(2, i) = des_joint_velocities_(gdp2L[i * 3 + 2]);
+            robot_state_desired_msg.ee_vel.at(gdp2L_leg[i]).x = des_dp(0, i);
+            robot_state_desired_msg.ee_vel.at(gdp2L_leg[i]).y = des_dp(1, i);
+            robot_state_desired_msg.ee_vel.at(gdp2L_leg[i]).z = des_dp(2, i);
 
             p_gain(0, i) = joint_p_gain_[gdp2L[i * 3]];
             p_gain(1, i) = joint_p_gain_[gdp2L[i * 3 + 1]];
@@ -863,6 +895,9 @@ namespace ros_impedance_controller
                 joint_state_ts_msg.velocity[gdp2L[i * 3]] = dp_ax(0);
                 joint_state_ts_msg.velocity[gdp2L[i * 3 + 1]] = dp_ax(1);
                 joint_state_ts_msg.velocity[gdp2L[i * 3 + 2]] = dp_ax(2);
+                robot_state_estimated_msg.ee_vel.at(gdp2L_leg[i]).x = dp_ax(0);
+                robot_state_estimated_msg.ee_vel.at(gdp2L_leg[i]).y = dp_ax(1);
+                robot_state_estimated_msg.ee_vel.at(gdp2L_leg[i]).z = dp_ax(2);
             }
             else if (i == 2)
             {
@@ -878,6 +913,9 @@ namespace ros_impedance_controller
                 joint_state_ts_msg.velocity[gdp2L[i * 3]] = dp_ax(0);
                 joint_state_ts_msg.velocity[gdp2L[i * 3 + 1]] = dp_ax(1);
                 joint_state_ts_msg.velocity[gdp2L[i * 3 + 2]] = dp_ax(2);
+                robot_state_estimated_msg.ee_vel.at(gdp2L_leg[i]).x = dp_ax(0);
+                robot_state_estimated_msg.ee_vel.at(gdp2L_leg[i]).y = dp_ax(1);
+                robot_state_estimated_msg.ee_vel.at(gdp2L_leg[i]).z = dp_ax(2);
             }
             else if (i == 1)
             {
