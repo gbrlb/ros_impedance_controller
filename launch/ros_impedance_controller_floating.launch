@@ -82,7 +82,14 @@
 	</node>
         <!-- 6 run rviz -->
         <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rviz_conf) -f world" if="$(arg rviz)"/>
-		<node name="rqt_multiplot" pkg="rqt_multiplot" type="rqt_multiplot" if="$(arg rqt)"/>
-		<!-- <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" if="$(arg rqt)"/> -->
 
+
+
+	<group if="$(arg rqt)">
+		<!-- <node name="rqt_multiplot" pkg="rqt_multiplot" type="rqt_multiplot"/> -->
+		<node name="rqt_multiplot_pos" pkg="rqt_multiplot" type="rqt_multiplot" args="--multiplot-config $(find ros_impedance_controller)/rqt_multiplot/joint_position.xml"/>
+		<node name="rqt_multiplot_vel" pkg="rqt_multiplot" type="rqt_multiplot" args="--multiplot-config $(find ros_impedance_controller)/rqt_multiplot/joint_velocities.xml"/>
+		<node name="rqt_multiplot_tau" pkg="rqt_multiplot" type="rqt_multiplot" args="--multiplot-config $(find ros_impedance_controller)/rqt_multiplot/joint_torques.xml"/>
+		<node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" if="$(arg rqt)"/>
+	</group>
 </launch>
