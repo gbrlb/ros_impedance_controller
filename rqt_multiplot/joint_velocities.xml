@@ -32,8 +32,8 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <relative_minimum>-10</relative_minimum>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/command</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -45,7 +45,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/command</topic>
@@ -83,10 +83,10 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <relative_minimum>-10</relative_minimum>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/go1/joint_states</topic>
+                                    <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
                                 </x_axis>
                                 <y_axis>
@@ -96,10 +96,10 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/go1/joint_states</topic>
+                                    <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
                                 </y_axis>
                             </axes>
@@ -157,8 +157,8 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <relative_minimum>-10</relative_minimum>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/command</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -170,7 +170,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/command</topic>
@@ -208,10 +208,10 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <relative_minimum>-10</relative_minimum>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/go1/joint_states</topic>
+                                    <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
                                 </x_axis>
                                 <y_axis>
@@ -221,10 +221,10 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/go1/joint_states</topic>
+                                    <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
                                 </y_axis>
                             </axes>
@@ -282,8 +282,8 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <relative_minimum>-10</relative_minimum>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/command</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -295,7 +295,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/command</topic>
@@ -333,10 +333,10 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <relative_minimum>-10</relative_minimum>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/go1/joint_states</topic>
+                                    <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
                                 </x_axis>
                                 <y_axis>
@@ -346,10 +346,10 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/go1/joint_states</topic>
+                                    <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
                                 </y_axis>
                             </axes>
@@ -407,8 +407,8 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <relative_minimum>-10</relative_minimum>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/command</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -420,7 +420,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/command</topic>
@@ -458,10 +458,10 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <relative_minimum>-10</relative_minimum>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/go1/joint_states</topic>
+                                    <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
                                 </x_axis>
                                 <y_axis>
@@ -471,10 +471,10 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/go1/joint_states</topic>
+                                    <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
                                 </y_axis>
                             </axes>
@@ -534,8 +534,8 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <relative_minimum>-10</relative_minimum>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/command</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -547,7 +547,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/command</topic>
@@ -585,10 +585,10 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <relative_minimum>-10</relative_minimum>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/go1/joint_states</topic>
+                                    <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
                                 </x_axis>
                                 <y_axis>
@@ -598,10 +598,10 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/go1/joint_states</topic>
+                                    <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
                                 </y_axis>
                             </axes>
@@ -659,8 +659,8 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <relative_minimum>-10</relative_minimum>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/command</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -672,7 +672,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/command</topic>
@@ -710,10 +710,10 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <relative_minimum>-10</relative_minimum>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/go1/joint_states</topic>
+                                    <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
                                 </x_axis>
                                 <y_axis>
@@ -723,10 +723,10 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/go1/joint_states</topic>
+                                    <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
                                 </y_axis>
                             </axes>
@@ -784,8 +784,8 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <relative_minimum>-10</relative_minimum>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/command</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -797,7 +797,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/command</topic>
@@ -835,10 +835,10 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <relative_minimum>-10</relative_minimum>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/go1/joint_states</topic>
+                                    <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
                                 </x_axis>
                                 <y_axis>
@@ -848,10 +848,10 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/go1/joint_states</topic>
+                                    <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
                                 </y_axis>
                             </axes>
@@ -909,8 +909,8 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <relative_minimum>-10</relative_minimum>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/command</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -922,7 +922,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/command</topic>
@@ -960,10 +960,10 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <relative_minimum>-10</relative_minimum>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/go1/joint_states</topic>
+                                    <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
                                 </x_axis>
                                 <y_axis>
@@ -973,10 +973,10 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/go1/joint_states</topic>
+                                    <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
                                 </y_axis>
                             </axes>
@@ -1036,8 +1036,8 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <relative_minimum>-10</relative_minimum>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/command</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -1049,7 +1049,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/command</topic>
@@ -1087,10 +1087,10 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <relative_minimum>-10</relative_minimum>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/go1/joint_states</topic>
+                                    <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
                                 </x_axis>
                                 <y_axis>
@@ -1100,10 +1100,10 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/go1/joint_states</topic>
+                                    <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
                                 </y_axis>
                             </axes>
@@ -1161,8 +1161,8 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <relative_minimum>-10</relative_minimum>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/command</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -1174,7 +1174,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/command</topic>
@@ -1212,10 +1212,10 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <relative_minimum>-10</relative_minimum>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/go1/joint_states</topic>
+                                    <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
                                 </x_axis>
                                 <y_axis>
@@ -1225,10 +1225,10 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/go1/joint_states</topic>
+                                    <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
                                 </y_axis>
                             </axes>
@@ -1286,8 +1286,8 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <relative_minimum>-10</relative_minimum>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/command</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -1299,7 +1299,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/command</topic>
@@ -1337,10 +1337,10 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <relative_minimum>-10</relative_minimum>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/go1/joint_states</topic>
+                                    <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
                                 </x_axis>
                                 <y_axis>
@@ -1350,10 +1350,10 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/go1/joint_states</topic>
+                                    <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
                                 </y_axis>
                             </axes>
@@ -1411,8 +1411,8 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <relative_minimum>-10</relative_minimum>
+                                        <type>2</type>
                                     </scale>
                                     <topic>/command</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -1424,7 +1424,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/command</topic>
@@ -1462,10 +1462,10 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <relative_minimum>-10</relative_minimum>
+                                        <type>2</type>
                                     </scale>
-                                    <topic>/go1/joint_states</topic>
+                                    <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
                                 </x_axis>
                                 <y_axis>
@@ -1475,10 +1475,10 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
-                                    <topic>/go1/joint_states</topic>
+                                    <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
                                 </y_axis>
                             </axes>

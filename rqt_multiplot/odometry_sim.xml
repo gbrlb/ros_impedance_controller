@@ -32,7 +32,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/kf/estimated_robot_state</topic>
@@ -45,7 +45,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/kf/estimated_robot_state</topic>
@@ -83,7 +83,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/ground_truth/state</topic>
@@ -96,7 +96,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/ground_truth/state</topic>
@@ -157,7 +157,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/kf/estimated_robot_state</topic>
@@ -170,7 +170,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/kf/estimated_robot_state</topic>
@@ -208,7 +208,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/ground_truth/state</topic>
@@ -221,7 +221,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/ground_truth/state</topic>
@@ -282,7 +282,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/kf/estimated_robot_state</topic>
@@ -295,7 +295,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/kf/estimated_robot_state</topic>
@@ -333,7 +333,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/ground_truth/state</topic>
@@ -346,7 +346,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/ground_truth/state</topic>
@@ -409,7 +409,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/kf/estimated_robot_state</topic>
@@ -422,7 +422,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/kf/estimated_robot_state</topic>
@@ -460,7 +460,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/ground_truth/state</topic>
@@ -473,7 +473,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/ground_truth/state</topic>
@@ -534,7 +534,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/kf/estimated_robot_state</topic>
@@ -547,7 +547,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/kf/estimated_robot_state</topic>
@@ -585,7 +585,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/ground_truth/state</topic>
@@ -598,7 +598,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/ground_truth/state</topic>
@@ -659,7 +659,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/kf/estimated_robot_state</topic>
@@ -672,7 +672,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/kf/estimated_robot_state</topic>
@@ -710,7 +710,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/ground_truth/state</topic>
@@ -723,7 +723,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/ground_truth/state</topic>
@@ -786,7 +786,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/kf/estimated_robot_state</topic>
@@ -799,7 +799,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/kf/estimated_robot_state</topic>
@@ -837,7 +837,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/ground_truth/state</topic>
@@ -850,7 +850,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/ground_truth/state</topic>
@@ -911,7 +911,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/kf/estimated_robot_state</topic>
@@ -924,7 +924,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/kf/estimated_robot_state</topic>
@@ -962,7 +962,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/ground_truth/state</topic>
@@ -975,7 +975,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/ground_truth/state</topic>
@@ -1036,7 +1036,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/kf/estimated_robot_state</topic>
@@ -1049,7 +1049,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/kf/estimated_robot_state</topic>
@@ -1087,7 +1087,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/ground_truth/state</topic>
@@ -1100,7 +1100,7 @@
                                         <absolute_maximum>1000</absolute_maximum>
                                         <absolute_minimum>0</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
-                                        <relative_minimum>-1000</relative_minimum>
+                                        <relative_minimum>-10</relative_minimum>
                                         <type>0</type>
                                     </scale>
                                     <topic>/ground_truth/state</topic>
