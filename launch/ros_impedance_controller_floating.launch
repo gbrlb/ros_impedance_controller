@@ -14,8 +14,10 @@
 	<arg name="task_period" default="0.001" />
      	<arg name="new_gazebo_version" default="true" />
 
+	<arg name="effort_limit" default="15" />
 	<arg name="threshold_high" default="18" />
 	<arg name="threshold_low" default="12" />
+	<param name="effort_limit"  value="$(arg effort_limit)" />
 	<param name="threshold_high"  value="$(arg threshold_high)" />
 	<param name="threshold_low"  value="$(arg threshold_low)" />
 	<arg name="spawn_x" default="0.0" />

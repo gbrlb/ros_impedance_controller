@@ -224,8 +224,10 @@ namespace ros_impedance_controller
         sub_contact_rh = root_nh.subscribe("/" + robot_name + "/rh_foot_bumper", 1, &Controller::receive_contact_rh, this, ros::TransportHints().tcpNoDelay());
         contact_state_msg.contacts.resize(4);
         
+        controller_nh.getParam("/effort_limit", effort_limit);
         controller_nh.getParam("/threshold_high", threshold_high);
         controller_nh.getParam("/threshold_low", threshold_low);
+        ROS_WARN("effort_limit is: %f", effort_limit);
         ROS_WARN("threshold_high is: %f", threshold_high);
         ROS_WARN("threshold_low is: %f", threshold_low);
 
@@ -510,9 +512,10 @@ namespace ros_impedance_controller
 
                 des_joint_efforts_sum_(i) = des_joint_efforts_(i) + des_joint_efforts_pids_(i);
 
-                if (std::abs(des_joint_efforts_sum_(i)) > 27.3)
+                double effort_limit = 5.0; //23.7 max
+                if (std::abs(des_joint_efforts_sum_(i)) > effort_limit)
                 {
-                    des_joint_efforts_sum_(i) = (des_joint_efforts_sum_(i) / std::abs(des_joint_efforts_sum_(i))) * 27.3;
+                    des_joint_efforts_sum_(i) = (des_joint_efforts_sum_(i) / std::abs(des_joint_efforts_sum_(i))) * effort_limit;
                 }
 
                 // joint_states_[i].setCommand(des_joint_efforts_(i) + des_joint_efforts_pids_(i));
