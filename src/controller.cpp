@@ -530,7 +530,6 @@ namespace ros_impedance_controller
 
                 des_joint_efforts_sum_(i) = des_joint_efforts_(i) + des_joint_efforts_pids_(i);
 
-                double effort_limit = 5.0; //23.7 max
                 if (std::abs(des_joint_efforts_sum_(i)) > effort_limit)
                 {
                     des_joint_efforts_sum_(i) = (des_joint_efforts_sum_(i) / std::abs(des_joint_efforts_sum_(i))) * effort_limit;
