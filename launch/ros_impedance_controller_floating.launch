@@ -87,9 +87,10 @@
 
 	<group if="$(arg rqt)">
 		<!-- <node name="rqt_multiplot" pkg="rqt_multiplot" type="rqt_multiplot"/> -->
-		<node name="rqt_multiplot_pos" pkg="rqt_multiplot" type="rqt_multiplot" args="--multiplot-config $(find ros_impedance_controller)/rqt_multiplot/joint_position.xml"/>
-		<node name="rqt_multiplot_vel" pkg="rqt_multiplot" type="rqt_multiplot" args="--multiplot-config $(find ros_impedance_controller)/rqt_multiplot/joint_velocities.xml"/>
-		<node name="rqt_multiplot_tau" pkg="rqt_multiplot" type="rqt_multiplot" args="--multiplot-config $(find ros_impedance_controller)/rqt_multiplot/joint_torques.xml"/>
+		<node name="feet_contacts" pkg="rqt_multiplot" type="rqt_multiplot" args="--multiplot-config $(find ros_impedance_controller)/rqt_multiplot/feet_contacts.xml"/>
+		<node name="feet_positions" pkg="rqt_multiplot" type="rqt_multiplot" args="--multiplot-config $(find ros_impedance_controller)/rqt_multiplot/feet_positions.xml"/>
+		<node name="feet_velocities" pkg="rqt_multiplot" type="rqt_multiplot" args="--multiplot-config $(find ros_impedance_controller)/rqt_multiplot/feet_velocities.xml"/>
+		<node name="joint_torques" pkg="rqt_multiplot" type="rqt_multiplot" args="--multiplot-config $(find ros_impedance_controller)/rqt_multiplot/joint_torques.xml"/>
 		<node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" if="$(arg rqt)"/>
 	</group>
 </launch>
