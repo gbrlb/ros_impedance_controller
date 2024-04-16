@@ -334,7 +334,7 @@
                         <visible>true</visible>
                     </legend>
                     <plot_rate>500</plot_rate>
-                    <title>FL foot position tracking</title>
+                    <title>LF foot position tracking</title>
                 </column_0>
                 <column_1>
                     <axes>
@@ -663,7 +663,7 @@
                         <visible>true</visible>
                     </legend>
                     <plot_rate>250</plot_rate>
-                    <title>FR foot position tracking</title>
+                    <title>LH foot position tracking</title>
                 </column_1>
             </row_0>
             <row_1>
@@ -994,7 +994,7 @@
                         <visible>true</visible>
                     </legend>
                     <plot_rate>250</plot_rate>
-                    <title>RL foot position tracking</title>
+                    <title>RF foot position tracking</title>
                 </column_0>
                 <column_1>
                     <axes>
@@ -1323,7 +1323,7 @@
                         <visible>true</visible>
                     </legend>
                     <plot_rate>250</plot_rate>
-                    <title>RR foot position tracking</title>
+                    <title>RH foot position tracking</title>
                 </column_1>
             </row_1>
         </plots>

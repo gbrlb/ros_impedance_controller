@@ -41,11 +41,11 @@
                                     <field>effort/0</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/command</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -92,11 +92,11 @@
                                     <field>effort_pid/0</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/go1/effort_pid</topic>
                                     <type>ros_impedance_controller/EffortPid</type>
@@ -143,11 +143,11 @@
                                     <field>effort/0</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -158,9 +158,9 @@
                                 <type>1</type>
                             </color>
                             <data>
-                                <circular_buffer_capacity>1000</circular_buffer_capacity>
+                                <circular_buffer_capacity>500</circular_buffer_capacity>
                                 <time_frame_length>10</time_frame_length>
-                                <type>0</type>
+                                <type>2</type>
                             </data>
                             <style>
                                 <lines_interpolate>false</lines_interpolate>
@@ -180,7 +180,7 @@
                         <visible>true</visible>
                     </legend>
                     <plot_rate>500</plot_rate>
-                    <title>FL HAA</title>
+                    <title>LF_HAA</title>
                 </column_0>
                 <column_1>
                     <axes>
@@ -217,11 +217,11 @@
                                     <field>effort/3</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/command</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -268,11 +268,11 @@
                                     <field>effort_pid/3</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/go1/effort_pid</topic>
                                     <type>ros_impedance_controller/EffortPid</type>
@@ -319,11 +319,11 @@
                                     <field>effort/3</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -334,9 +334,9 @@
                                 <type>1</type>
                             </color>
                             <data>
-                                <circular_buffer_capacity>1000</circular_buffer_capacity>
+                                <circular_buffer_capacity>500</circular_buffer_capacity>
                                 <time_frame_length>10</time_frame_length>
-                                <type>0</type>
+                                <type>2</type>
                             </data>
                             <style>
                                 <lines_interpolate>false</lines_interpolate>
@@ -356,7 +356,7 @@
                         <visible>true</visible>
                     </legend>
                     <plot_rate>500</plot_rate>
-                    <title>FL HAA</title>
+                    <title>LH_HAA</title>
                 </column_1>
                 <column_2>
                     <axes>
@@ -393,11 +393,11 @@
                                     <field>effort/6</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/command</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -444,11 +444,11 @@
                                     <field>effort_pid/6</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/go1/effort_pid</topic>
                                     <type>ros_impedance_controller/EffortPid</type>
@@ -495,11 +495,11 @@
                                     <field>effort/6</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -510,9 +510,9 @@
                                 <type>1</type>
                             </color>
                             <data>
-                                <circular_buffer_capacity>1000</circular_buffer_capacity>
+                                <circular_buffer_capacity>500</circular_buffer_capacity>
                                 <time_frame_length>10</time_frame_length>
-                                <type>0</type>
+                                <type>2</type>
                             </data>
                             <style>
                                 <lines_interpolate>false</lines_interpolate>
@@ -532,7 +532,7 @@
                         <visible>true</visible>
                     </legend>
                     <plot_rate>500</plot_rate>
-                    <title>FL HAA</title>
+                    <title>RF_HAA</title>
                 </column_2>
                 <column_3>
                     <axes>
@@ -569,11 +569,11 @@
                                     <field>effort/9</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/command</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -620,11 +620,11 @@
                                     <field>effort_pid/9</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/go1/effort_pid</topic>
                                     <type>ros_impedance_controller/EffortPid</type>
@@ -671,11 +671,11 @@
                                     <field>effort/9</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -686,9 +686,9 @@
                                 <type>1</type>
                             </color>
                             <data>
-                                <circular_buffer_capacity>1000</circular_buffer_capacity>
+                                <circular_buffer_capacity>500</circular_buffer_capacity>
                                 <time_frame_length>10</time_frame_length>
-                                <type>0</type>
+                                <type>2</type>
                             </data>
                             <style>
                                 <lines_interpolate>false</lines_interpolate>
@@ -708,7 +708,7 @@
                         <visible>true</visible>
                     </legend>
                     <plot_rate>500</plot_rate>
-                    <title>FL HAA</title>
+                    <title>RH_HAA</title>
                 </column_3>
             </row_0>
             <row_1>
@@ -747,11 +747,11 @@
                                     <field>effort/1</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/command</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -798,11 +798,11 @@
                                     <field>effort_pid/1</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/go1/effort_pid</topic>
                                     <type>ros_impedance_controller/EffortPid</type>
@@ -849,11 +849,11 @@
                                     <field>effort/1</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -864,9 +864,9 @@
                                 <type>1</type>
                             </color>
                             <data>
-                                <circular_buffer_capacity>1000</circular_buffer_capacity>
+                                <circular_buffer_capacity>500</circular_buffer_capacity>
                                 <time_frame_length>10</time_frame_length>
-                                <type>0</type>
+                                <type>2</type>
                             </data>
                             <style>
                                 <lines_interpolate>false</lines_interpolate>
@@ -886,7 +886,7 @@
                         <visible>true</visible>
                     </legend>
                     <plot_rate>500</plot_rate>
-                    <title>FL HAA</title>
+                    <title>LF_HFE</title>
                 </column_0>
                 <column_1>
                     <axes>
@@ -923,11 +923,11 @@
                                     <field>effort/4</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/command</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -974,11 +974,11 @@
                                     <field>effort_pid/4</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/go1/effort_pid</topic>
                                     <type>ros_impedance_controller/EffortPid</type>
@@ -1025,11 +1025,11 @@
                                     <field>effort/4</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -1040,9 +1040,9 @@
                                 <type>1</type>
                             </color>
                             <data>
-                                <circular_buffer_capacity>1000</circular_buffer_capacity>
+                                <circular_buffer_capacity>500</circular_buffer_capacity>
                                 <time_frame_length>10</time_frame_length>
-                                <type>0</type>
+                                <type>2</type>
                             </data>
                             <style>
                                 <lines_interpolate>false</lines_interpolate>
@@ -1062,7 +1062,7 @@
                         <visible>true</visible>
                     </legend>
                     <plot_rate>500</plot_rate>
-                    <title>FL HAA</title>
+                    <title>LH_HFE</title>
                 </column_1>
                 <column_2>
                     <axes>
@@ -1099,11 +1099,11 @@
                                     <field>effort/7</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/command</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -1150,11 +1150,11 @@
                                     <field>effort_pid/7</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/go1/effort_pid</topic>
                                     <type>ros_impedance_controller/EffortPid</type>
@@ -1201,11 +1201,11 @@
                                     <field>effort/7</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -1216,9 +1216,9 @@
                                 <type>1</type>
                             </color>
                             <data>
-                                <circular_buffer_capacity>1000</circular_buffer_capacity>
+                                <circular_buffer_capacity>500</circular_buffer_capacity>
                                 <time_frame_length>10</time_frame_length>
-                                <type>0</type>
+                                <type>2</type>
                             </data>
                             <style>
                                 <lines_interpolate>false</lines_interpolate>
@@ -1238,7 +1238,7 @@
                         <visible>true</visible>
                     </legend>
                     <plot_rate>500</plot_rate>
-                    <title>FL HAA</title>
+                    <title>RF_HFE</title>
                 </column_2>
                 <column_3>
                     <axes>
@@ -1275,11 +1275,11 @@
                                     <field>effort/10</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/command</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -1326,11 +1326,11 @@
                                     <field>effort_pid/10</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/go1/effort_pid</topic>
                                     <type>ros_impedance_controller/EffortPid</type>
@@ -1377,11 +1377,11 @@
                                     <field>effort/10</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -1392,9 +1392,9 @@
                                 <type>1</type>
                             </color>
                             <data>
-                                <circular_buffer_capacity>1000</circular_buffer_capacity>
+                                <circular_buffer_capacity>500</circular_buffer_capacity>
                                 <time_frame_length>10</time_frame_length>
-                                <type>0</type>
+                                <type>2</type>
                             </data>
                             <style>
                                 <lines_interpolate>false</lines_interpolate>
@@ -1414,7 +1414,7 @@
                         <visible>true</visible>
                     </legend>
                     <plot_rate>500</plot_rate>
-                    <title>FL HAA</title>
+                    <title>RH_HFE</title>
                 </column_3>
             </row_1>
             <row_2>
@@ -1453,11 +1453,11 @@
                                     <field>effort/2</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/command</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -1504,11 +1504,11 @@
                                     <field>effort_pid/2</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/go1/effort_pid</topic>
                                     <type>ros_impedance_controller/EffortPid</type>
@@ -1555,11 +1555,11 @@
                                     <field>effort/2</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -1570,9 +1570,9 @@
                                 <type>1</type>
                             </color>
                             <data>
-                                <circular_buffer_capacity>1000</circular_buffer_capacity>
+                                <circular_buffer_capacity>500</circular_buffer_capacity>
                                 <time_frame_length>10</time_frame_length>
-                                <type>0</type>
+                                <type>2</type>
                             </data>
                             <style>
                                 <lines_interpolate>false</lines_interpolate>
@@ -1592,7 +1592,7 @@
                         <visible>true</visible>
                     </legend>
                     <plot_rate>500</plot_rate>
-                    <title>FL HAA</title>
+                    <title>LF_KFE</title>
                 </column_0>
                 <column_1>
                     <axes>
@@ -1629,11 +1629,11 @@
                                     <field>effort/5</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/command</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -1680,11 +1680,11 @@
                                     <field>effort_pid/5</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/go1/effort_pid</topic>
                                     <type>ros_impedance_controller/EffortPid</type>
@@ -1731,11 +1731,11 @@
                                     <field>effort/5</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -1746,9 +1746,9 @@
                                 <type>1</type>
                             </color>
                             <data>
-                                <circular_buffer_capacity>1000</circular_buffer_capacity>
+                                <circular_buffer_capacity>500</circular_buffer_capacity>
                                 <time_frame_length>10</time_frame_length>
-                                <type>0</type>
+                                <type>2</type>
                             </data>
                             <style>
                                 <lines_interpolate>false</lines_interpolate>
@@ -1768,7 +1768,7 @@
                         <visible>true</visible>
                     </legend>
                     <plot_rate>500</plot_rate>
-                    <title>FL HAA</title>
+                    <title>LH_KFE</title>
                 </column_1>
                 <column_2>
                     <axes>
@@ -1805,11 +1805,11 @@
                                     <field>effort/8</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/command</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -1856,11 +1856,11 @@
                                     <field>effort_pid/8</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/go1/effort_pid</topic>
                                     <type>ros_impedance_controller/EffortPid</type>
@@ -1907,11 +1907,11 @@
                                     <field>effort/8</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -1922,9 +1922,9 @@
                                 <type>1</type>
                             </color>
                             <data>
-                                <circular_buffer_capacity>1000</circular_buffer_capacity>
+                                <circular_buffer_capacity>500</circular_buffer_capacity>
                                 <time_frame_length>10</time_frame_length>
-                                <type>0</type>
+                                <type>2</type>
                             </data>
                             <style>
                                 <lines_interpolate>false</lines_interpolate>
@@ -1944,7 +1944,7 @@
                         <visible>true</visible>
                     </legend>
                     <plot_rate>500</plot_rate>
-                    <title>FL HAA</title>
+                    <title>RF_KFE</title>
                 </column_2>
                 <column_3>
                     <axes>
@@ -1981,11 +1981,11 @@
                                     <field>effort/11</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-10</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/command</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -2032,11 +2032,11 @@
                                     <field>effort_pid/11</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/go1/effort_pid</topic>
                                     <type>ros_impedance_controller/EffortPid</type>
@@ -2083,11 +2083,11 @@
                                     <field>effort/11</field>
                                     <field_type>0</field_type>
                                     <scale>
-                                        <absolute_maximum>1000</absolute_maximum>
-                                        <absolute_minimum>0</absolute_minimum>
+                                        <absolute_maximum>10</absolute_maximum>
+                                        <absolute_minimum>-10</absolute_minimum>
                                         <relative_maximum>0</relative_maximum>
                                         <relative_minimum>-1000</relative_minimum>
-                                        <type>0</type>
+                                        <type>1</type>
                                     </scale>
                                     <topic>/go1/joint_state_ts</topic>
                                     <type>sensor_msgs/JointState</type>
@@ -2098,9 +2098,9 @@
                                 <type>1</type>
                             </color>
                             <data>
-                                <circular_buffer_capacity>1000</circular_buffer_capacity>
+                                <circular_buffer_capacity>500</circular_buffer_capacity>
                                 <time_frame_length>10</time_frame_length>
-                                <type>0</type>
+                                <type>2</type>
                             </data>
                             <style>
                                 <lines_interpolate>false</lines_interpolate>
@@ -2120,7 +2120,7 @@
                         <visible>true</visible>
                     </legend>
                     <plot_rate>500</plot_rate>
-                    <title>FL HAA</title>
+                    <title>RH_KFE</title>
                 </column_3>
             </row_2>
         </plots>
