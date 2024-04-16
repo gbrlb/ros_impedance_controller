@@ -540,6 +540,7 @@ namespace ros_impedance_controller
             }
         }
 
+        msg.header.stamp = time;
         effort_pid_pub.publish(msg);
 
         robot_state_desired_msg.header.stamp = time;
@@ -929,6 +930,9 @@ namespace ros_impedance_controller
                 joint_state_ts_msg.velocity[gdp2L[i * 3]] = dp_ax(0);
                 joint_state_ts_msg.velocity[gdp2L[i * 3 + 1]] = dp_ax(1);
                 joint_state_ts_msg.velocity[gdp2L[i * 3 + 2]] = dp_ax(2);
+                robot_state_estimated_msg.ee_vel.at(gdp2L_leg[i]).x = dp_ax(0);
+                robot_state_estimated_msg.ee_vel.at(gdp2L_leg[i]).y = dp_ax(1);
+                robot_state_estimated_msg.ee_vel.at(gdp2L_leg[i]).z = dp_ax(2);
             }
             else if (i == 3)
             {
@@ -944,6 +948,9 @@ namespace ros_impedance_controller
                 joint_state_ts_msg.velocity[gdp2L[i * 3]] = dp_ax(0);
                 joint_state_ts_msg.velocity[gdp2L[i * 3 + 1]] = dp_ax(1);
                 joint_state_ts_msg.velocity[gdp2L[i * 3 + 2]] = dp_ax(2);
+                robot_state_estimated_msg.ee_vel.at(gdp2L_leg[i]).x = dp_ax(0);
+                robot_state_estimated_msg.ee_vel.at(gdp2L_leg[i]).y = dp_ax(1);
+                robot_state_estimated_msg.ee_vel.at(gdp2L_leg[i]).z = dp_ax(2);
             }
         }
 
